@@ -9,7 +9,7 @@ import { Router } from 'express';
   standalone: true,
   imports: [CommonModule, RouterModule],
   template: `
-    <div class="invoices-list">
+    <div class="container">
       <h2>Invoices List</h2>
       <table>
         <thead>

@@ -5,7 +5,7 @@ import { Customer } from '../../modules/data';
   providedIn: 'root',
 })
 export class Customer2Service {
-  url = 'https://jsonplaceholder.typicode.com/users';
+  url = 'http://localhost:3000/customers';
   constructor() {}
 
   async getAllCustomers(): Promise<Customer[]> {
@@ -15,7 +15,8 @@ export class Customer2Service {
 
   async getCustomer(id: number): Promise<Customer> {
     const response = await fetch(`${this.url}/${id}`);
-    return (await response.json()) ?? null;
+    const data = (await response.json()) ?? null;
+    return data.map((customer: any) => this.parseCustomer(customer)) ?? null;
   }
 
   async addCustomer(customer: Customer): Promise<Customer> {
@@ -47,15 +48,15 @@ export class Customer2Service {
     return (await response.json()) ?? null;
   }
 
-  parseCustomer (customer: any): Customer {
+  parseCustomer(customer: any): Customer {
     return {
       customer_id: customer.id,
-      name: customer.name,
-      email: customer.email,
-      phone_number: customer.phone,
-      address: customer.address.street,
-      created_at: customer.created_at,
-      updated_at: customer.updated_at,
+      name: customer.name ?? ' - ',
+      email: customer.email ?? ' - ',
+      phone_number: customer.phone_number ?? ' - ',
+      address: customer.address ?? ' - ',
+      created_at: new Date(customer.created_at),
+      updated_at: new Date(customer.updated_at),
     };
   }
 }
