@@ -63,7 +63,7 @@ export class Invoice2Service {
   private parseInvoice(invoice: any): Invoice {
     console.log(invoice.invoice_id);
     return {
-      invoice_id: invoice.invoice_id,
+      invoice_id: invoice.id ?? 0,
       customer_id: invoice.customer_id,
       order_id: invoice.order_id,
       total_amount: invoice.total_amount,

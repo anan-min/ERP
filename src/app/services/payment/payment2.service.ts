@@ -29,7 +29,7 @@ export class Payment2Service {
 
   private parsePayment(payment: any): Payment {
     return {
-      payment_id: payment.id,
+      payment_id: payment.id ?? 0,
       invoice_id: payment.invoice_id,
       payment_date: new Date(payment.payment_date),
       payment_amount: payment.payment_amount,

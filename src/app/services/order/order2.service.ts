@@ -22,7 +22,7 @@ export class Order2Service {
 
   private parseOrder(order: any): Order {
     return {
-      order_id: order.order_id,
+      order_id: order.id ?? 0,
       customer_id: order.customer_id,
       order_date: new Date(order.order_date),
       total_amount: order.total_amount,
