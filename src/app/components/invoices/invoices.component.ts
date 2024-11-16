@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { Invoice } from '../../modules/data';
 import { Invoice2Service } from '../../services/invoice/invoice2.service';
 import { RouterModule } from '@angular/router';
-import { Router } from 'express';
 @Component({
   selector: 'app-invoices',
   standalone: true,
