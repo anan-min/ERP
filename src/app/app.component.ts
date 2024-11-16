@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { OrdersComponent } from './components/orders/orders.component';
+import { PaymentsComponent } from './components/payments/payments.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [OrdersComponent],
+  imports: [PaymentsComponent],
   template: `
     <div>
-      <app-orders></app-orders>
+      <app-payments></app-payments>
     </div>
   `,
   styleUrl: './app.component.css',

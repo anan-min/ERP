@@ -54,4 +54,6 @@ export class Order2Service {
     const data = (await response.json()) ?? null;
     return this.parseOrder(data) ?? null;
   }
+
+
 }
