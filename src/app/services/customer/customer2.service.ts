@@ -10,24 +10,8 @@ export class Customer2Service {
 
   async getAllCustomers(): Promise<Customer[]> {
     const response = await fetch(this.url);
-    return (await response.json()) ?? [];
-  }
-
-  async getCustomer(id: number): Promise<Customer> {
-    const response = await fetch(`${this.url}/${id}`);
-    const data = (await response.json()) ?? null;
-    return data.map((customer: any) => this.parseCustomer(customer)) ?? null;
-  }
-
-  async addCustomer(customer: Customer): Promise<Customer> {
-    const response = await fetch(this.url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(customer),
-    });
-    return (await response.json()) ?? null;
+    const data = (await response.json()) ?? [];
+    return data.map((customer: any) => this.parseCustomer(customer)) ?? [];
   }
 
   async updateCustomer(customer: Customer): Promise<Customer> {
@@ -41,16 +25,15 @@ export class Customer2Service {
     return (await response.json()) ?? null;
   }
 
-  async deleteCustomer(id: number): Promise<Customer> {
+  async deleteCustomer(id: number): Promise<void> {
     const response = await fetch(`${this.url}/${id}`, {
       method: 'DELETE',
     });
-    return (await response.json()) ?? null;
   }
 
   parseCustomer(customer: any): Customer {
     return {
-      customer_id: customer.id,
+      customer_id: customer.id ?? 0,
       name: customer.name ?? ' - ',
       email: customer.email ?? ' - ',
       phone_number: customer.phone_number ?? ' - ',

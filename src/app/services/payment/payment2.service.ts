@@ -11,6 +11,7 @@ export class Payment2Service {
   async getAllPayments(): Promise<Payment[]> {
     const response = await fetch(this.url);
     const data = (await response.json()) ?? null;
+
     return data.map((payment: any) => this.parsePayment(payment));
   }
 
@@ -20,21 +21,15 @@ export class Payment2Service {
     return this.parsePayment(data) ?? null;
   }
 
-  async deletePayment(id: number): Promise<Response> {
-    const response = await fetch(`${this.url}/${id}`, {
+  async deletePayment(id: number): Promise<void> {
+    const data = await fetch(`${this.url}/${id}`, {
       method: 'DELETE',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
     });
-    console.log(response);
-    return response;
   }
 
   private parsePayment(payment: any): Payment {
     return {
-      payment_id: payment.payment_id,
+      payment_id: payment.id,
       invoice_id: payment.invoice_id,
       payment_date: new Date(payment.payment_date),
       payment_amount: payment.payment_amount,

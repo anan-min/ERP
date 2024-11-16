@@ -68,13 +68,19 @@ export class PaymentsComponent {
   }
 
   private loadPayments(): void {
-    this.paymentService.getAllPayments().then((payments) => {
-      this.payments = payments;
-    });
+    this.paymentService
+      .getAllPayments()
+      .then((payments) => {
+        this.payments = payments;
+      })
+      .catch((error) => {
+        console.error('Error fetching payments:', error);
+        alert('Failed to load payments.');
+      });
   }
 
-  deletePayment(id: number) {
-    this.paymentService.deletePayment(id).then(() => {
+  async deletePayment(payment_id: number): Promise<void> {
+    await this.paymentService.deletePayment(payment_id).then(() => {
       this.loadPayments();
     });
   }
