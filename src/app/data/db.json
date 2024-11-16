@@ -1,0 +1,586 @@
+{
+  "customers": [
+    {
+      "customer_id": 1,
+      "name": "Customer 1",
+      "email": "customer1@example.com",
+      "phone_number": "123-456-7891",
+      "address": "Street 1, City, Country",
+      "created_at": "2022-02-20T06:03:06.037332",
+      "updated_at": "2022-10-21T07:17:37.489883"
+    },
+    {
+      "customer_id": 2,
+      "name": "Customer 2",
+      "email": "customer2@example.com",
+      "phone_number": "123-456-7892",
+      "address": "Street 2, City, Country",
+      "created_at": "2023-11-12T00:15:13.984213",
+      "updated_at": "2023-02-24T23:35:10.252871"
+    },
+    {
+      "customer_id": 3,
+      "name": "Customer 3",
+      "email": "customer3@example.com",
+      "phone_number": "123-456-7893",
+      "address": "Street 3, City, Country",
+      "created_at": "2021-06-21T23:18:57.573087",
+      "updated_at": "2021-05-21T15:12:30.882536"
+    },
+    {
+      "customer_id": 4,
+      "name": "Customer 4",
+      "email": "customer4@example.com",
+      "phone_number": "123-456-7894",
+      "address": "Street 4, City, Country",
+      "created_at": "2021-08-18T07:45:45.633379",
+      "updated_at": "2021-04-24T17:44:31.227785"
+    },
+    {
+      "customer_id": 5,
+      "name": "Customer 5",
+      "email": "customer5@example.com",
+      "phone_number": "123-456-7895",
+      "address": "Street 5, City, Country",
+      "created_at": "2020-09-27T05:08:42.801344",
+      "updated_at": "2023-04-05T08:40:05.066878"
+    },
+    {
+      "customer_id": 6,
+      "name": "Customer 6",
+      "email": "customer6@example.com",
+      "phone_number": "123-456-7896",
+      "address": "Street 6, City, Country",
+      "created_at": "2020-01-13T11:19:23.606628",
+      "updated_at": "2023-10-12T13:05:45.358414"
+    },
+    {
+      "customer_id": 7,
+      "name": "Customer 7",
+      "email": "customer7@example.com",
+      "phone_number": "123-456-7897",
+      "address": "Street 7, City, Country",
+      "created_at": "2021-07-13T04:33:03.722570",
+      "updated_at": "2020-01-25T03:44:23.382449"
+    },
+    {
+      "customer_id": 8,
+      "name": "Customer 8",
+      "email": "customer8@example.com",
+      "phone_number": "123-456-7898",
+      "address": "Street 8, City, Country",
+      "created_at": "2022-03-17T15:18:54.619249",
+      "updated_at": "2023-03-02T22:11:50.751587"
+    },
+    {
+      "customer_id": 9,
+      "name": "Customer 9",
+      "email": "customer9@example.com",
+      "phone_number": "123-456-7899",
+      "address": "Street 9, City, Country",
+      "created_at": "2023-10-18T19:56:34.826088",
+      "updated_at": "2020-09-24T00:25:41.557277"
+    },
+    {
+      "customer_id": 10,
+      "name": "Customer 10",
+      "email": "customer10@example.com",
+      "phone_number": "123-456-78910",
+      "address": "Street 10, City, Country",
+      "created_at": "2023-01-07T09:22:15.701082",
+      "updated_at": "2022-03-25T19:27:03.532005"
+    }
+  ],
+  "invoices": [
+    {
+      "invoice_id": 1,
+      "customer_id": 4,
+      "order_id": 100,
+      "total_amount": 857.22,
+      "created_at": "2022-09-14T02:19:08.783154",
+      "updated_at": "2023-01-09T01:18:09.158205",
+      "status": "overdue",
+      "due_date": "2022-02-20T20:55:56.586009",
+      "discount": null,
+      "notes": null
+    },
+    {
+      "invoice_id": 2,
+      "customer_id": 8,
+      "order_id": 200,
+      "total_amount": 230.51,
+      "created_at": "2023-06-09T19:13:11.408892",
+      "updated_at": "2020-12-02T23:03:16.773057",
+      "status": "paid",
+      "due_date": "2020-12-28T00:15:46.835610",
+      "discount": 0.12,
+      "notes": null
+    },
+    {
+      "invoice_id": 3,
+      "customer_id": 9,
+      "order_id": 300,
+      "total_amount": 159.64,
+      "created_at": "2022-04-07T20:09:46.794840",
+      "updated_at": "2022-02-22T04:19:18.902001",
+      "status": "cancelled",
+      "due_date": "2023-10-17T06:55:04.739915",
+      "discount": null,
+      "notes": null
+    },
+    {
+      "invoice_id": 4,
+      "customer_id": 7,
+      "order_id": 400,
+      "total_amount": 124.66,
+      "created_at": "2020-03-20T02:55:23.398382",
+      "updated_at": "2020-11-29T09:03:12.109093",
+      "status": "paid",
+      "due_date": "2021-06-23T20:24:56.451935",
+      "discount": 0.01,
+      "notes": null
+    },
+    {
+      "invoice_id": 5,
+      "customer_id": 10,
+      "order_id": 500,
+      "total_amount": 483.58,
+      "created_at": "2023-05-24T17:39:10.809639",
+      "updated_at": "2022-05-05T02:14:18.188338",
+      "status": "pending",
+      "due_date": "2021-03-15T05:57:28.779083",
+      "discount": 0.19,
+      "notes": "Sample note"
+    },
+    {
+      "invoice_id": 6,
+      "customer_id": 2,
+      "order_id": 600,
+      "total_amount": 538.2,
+      "created_at": "2020-07-31T02:02:23.186969",
+      "updated_at": "2021-10-15T23:44:02.782563",
+      "status": "cancelled",
+      "due_date": "2023-11-26T20:09:08.621957",
+      "discount": 0.06,
+      "notes": "Sample note"
+    },
+    {
+      "invoice_id": 7,
+      "customer_id": 5,
+      "order_id": 700,
+      "total_amount": 698.89,
+      "created_at": "2020-01-10T07:24:22.130863",
+      "updated_at": "2021-07-07T22:46:54.503344",
+      "status": "paid",
+      "due_date": "2022-05-15T15:33:36.014197",
+      "discount": 0.12,
+      "notes": "Sample note"
+    },
+    {
+      "invoice_id": 8,
+      "customer_id": 7,
+      "order_id": 800,
+      "total_amount": 925.05,
+      "created_at": "2023-02-23T18:09:24.216943",
+      "updated_at": "2022-01-10T07:00:14.934266",
+      "status": "pending",
+      "due_date": "2021-05-04T12:39:52.517372",
+      "discount": null,
+      "notes": null
+    },
+    {
+      "invoice_id": 9,
+      "customer_id": 4,
+      "order_id": 900,
+      "total_amount": 434.77,
+      "created_at": "2022-05-09T19:24:20.614195",
+      "updated_at": "2023-07-24T06:03:47.435536",
+      "status": "cancelled",
+      "due_date": "2022-10-05T22:27:10.951958",
+      "discount": null,
+      "notes": "Sample note"
+    },
+    {
+      "invoice_id": 10,
+      "customer_id": 9,
+      "order_id": 1000,
+      "total_amount": 991.6,
+      "created_at": "2021-03-20T23:01:59.131762",
+      "updated_at": "2020-04-11T21:20:04.761327",
+      "status": "pending",
+      "due_date": "2021-07-11T09:25:39.800641",
+      "discount": null,
+      "notes": "Sample note"
+    }
+  ],
+  "orders": [
+    {
+      "order_id": 100,
+      "customer_id": 4,
+      "order_date": "2023-04-02T20:03:02.328283",
+      "total_amount": 835.19,
+      "status": "COMPLETED",
+      "created_at": "2021-01-17T01:03:31.094505",
+      "updated_at": "2022-06-28T23:31:38.292579"
+    },
+    {
+      "order_id": 200,
+      "customer_id": 4,
+      "order_date": "2021-08-08T05:13:58.109264",
+      "total_amount": 357.66,
+      "status": "COMPLETED",
+      "created_at": "2022-07-04T05:23:45.923602",
+      "updated_at": "2022-04-06T11:04:45.851639"
+    },
+    {
+      "order_id": 300,
+      "customer_id": 5,
+      "order_date": "2021-09-25T03:23:41.810248",
+      "total_amount": 495.74,
+      "status": "CANCELLED",
+      "created_at": "2023-12-30T16:22:55.192663",
+      "updated_at": "2023-11-19T06:28:28.300720"
+    },
+    {
+      "order_id": 400,
+      "customer_id": 1,
+      "order_date": "2021-05-18T13:22:36.487928",
+      "total_amount": 651.63,
+      "status": "CANCELLED",
+      "created_at": "2020-11-05T01:03:26.015942",
+      "updated_at": "2022-11-25T08:54:40.863988"
+    },
+    {
+      "order_id": 500,
+      "customer_id": 1,
+      "order_date": "2020-08-01T17:34:03.921058",
+      "total_amount": 533.33,
+      "status": "IN_PROGRESS",
+      "created_at": "2022-08-26T07:31:01.345621",
+      "updated_at": "2021-04-24T17:56:27.934643"
+    },
+    {
+      "order_id": 600,
+      "customer_id": 2,
+      "order_date": "2021-08-18T22:42:39.677866",
+      "total_amount": 239.76,
+      "status": "IN_PROGRESS",
+      "created_at": "2022-01-20T02:09:14.749359",
+      "updated_at": "2021-07-03T19:25:31.384451"
+    },
+    {
+      "order_id": 700,
+      "customer_id": 3,
+      "order_date": "2020-05-18T12:50:09.564474",
+      "total_amount": 816.53,
+      "status": "CANCELLED",
+      "created_at": "2023-07-30T23:52:32.164343",
+      "updated_at": "2022-07-25T13:10:30.339372"
+    },
+    {
+      "order_id": 800,
+      "customer_id": 2,
+      "order_date": "2021-10-24T18:35:45.826223",
+      "total_amount": 317.76,
+      "status": "CANCELLED",
+      "created_at": "2022-12-29T05:22:56.622435",
+      "updated_at": "2021-08-15T04:39:33.971469"
+    },
+    {
+      "order_id": 900,
+      "customer_id": 5,
+      "order_date": "2022-07-21T19:32:03.564041",
+      "total_amount": 644.32,
+      "status": "CANCELLED",
+      "created_at": "2023-05-12T19:29:44.468045",
+      "updated_at": "2020-07-02T14:12:16.918470"
+    },
+    {
+      "order_id": 1000,
+      "customer_id": 5,
+      "order_date": "2020-01-15T18:59:40.669005",
+      "total_amount": 966.44,
+      "status": "PENDING",
+      "created_at": "2022-06-20T01:03:37.724322",
+      "updated_at": "2022-02-15T10:37:03.625881"
+    }
+  ],
+  "payments": [
+    {
+      "payment_id": 10,
+      "invoice_id": 8,
+      "payment_date": "2021-05-01T17:47:38.081424",
+      "payment_amount": 337.74,
+      "payment_method": "Credit Card",
+      "status": "fail",
+      "created_at": "2020-10-21T02:52:01.087990",
+      "updated_at": "2021-10-19T00:12:14.662671"
+    },
+    {
+      "payment_id": 20,
+      "invoice_id": 3,
+      "payment_date": "2020-12-14T02:01:27.646141",
+      "payment_amount": 359.76,
+      "payment_method": "Credit Card",
+      "status": "pending",
+      "created_at": "2022-09-06T09:52:43.246566",
+      "updated_at": "2022-01-12T07:00:15.415447"
+    },
+    {
+      "payment_id": 30,
+      "invoice_id": 4,
+      "payment_date": "2023-01-29T08:53:07.721044",
+      "payment_amount": 386.47,
+      "payment_method": "Credit Card",
+      "status": "paid",
+      "created_at": "2021-05-13T16:51:30.010564",
+      "updated_at": "2022-11-19T15:06:53.156518"
+    },
+    {
+      "payment_id": 40,
+      "invoice_id": 4,
+      "payment_date": "2021-11-11T20:26:09.866598",
+      "payment_amount": 322.63,
+      "payment_method": "Credit Card",
+      "status": "pending",
+      "created_at": "2022-06-13T19:09:17.270207",
+      "updated_at": "2020-10-04T02:56:44.804168"
+    },
+    {
+      "payment_id": 50,
+      "invoice_id": 7,
+      "payment_date": "2021-06-20T02:50:44.446482",
+      "payment_amount": 550.92,
+      "payment_method": "Credit Card",
+      "status": "pending",
+      "created_at": "2022-01-03T18:56:54.753127",
+      "updated_at": "2021-04-21T17:52:14.089895"
+    },
+    {
+      "payment_id": 60,
+      "invoice_id": 5,
+      "payment_date": "2021-09-01T17:18:12.806089",
+      "payment_amount": 368.07,
+      "payment_method": "Credit Card",
+      "status": "pending",
+      "created_at": "2020-08-18T04:07:56.480863",
+      "updated_at": "2022-11-28T09:50:32.748390"
+    },
+    {
+      "payment_id": 70,
+      "invoice_id": 10,
+      "payment_date": "2022-05-08T06:42:35.396109",
+      "payment_amount": 53.97,
+      "payment_method": "Credit Card",
+      "status": "fail",
+      "created_at": "2022-10-07T14:23:21.108692",
+      "updated_at": "2023-07-02T02:03:19.277487"
+    },
+    {
+      "payment_id": 80,
+      "invoice_id": 3,
+      "payment_date": "2020-11-15T19:14:39.211288",
+      "payment_amount": 424.94,
+      "payment_method": "Credit Card",
+      "status": "pending",
+      "created_at": "2020-03-01T21:13:20.656050",
+      "updated_at": "2022-07-01T13:40:41.556824"
+    },
+    {
+      "payment_id": 90,
+      "invoice_id": 1,
+      "payment_date": "2021-06-25T16:20:27.913454",
+      "payment_amount": 331.92,
+      "payment_method": "Credit Card",
+      "status": "fail",
+      "created_at": "2020-12-18T05:42:19.621268",
+      "updated_at": "2023-02-05T17:06:09.625201"
+    },
+    {
+      "payment_id": 100,
+      "invoice_id": 10,
+      "payment_date": "2020-09-28T23:37:36.460833",
+      "payment_amount": 618.62,
+      "payment_method": "Credit Card",
+      "status": "fail",
+      "created_at": "2020-08-11T04:26:25.969377",
+      "updated_at": "2022-11-11T23:31:03.162976"
+    }
+  ],
+  "products": [
+    {
+      "product_id": 10,
+      "name": "Product 1",
+      "description": "Sample product description",
+      "price": 265.85,
+      "created_at": "2022-10-19T16:36:42.588317",
+      "updated_at": "2020-06-09T07:57:00.395823"
+    },
+    {
+      "product_id": 20,
+      "name": "Product 2",
+      "description": "Sample product description",
+      "price": 107.43,
+      "created_at": "2020-11-24T13:42:54.389580",
+      "updated_at": "2023-06-22T08:40:14.189577"
+    },
+    {
+      "product_id": 30,
+      "name": "Product 3",
+      "description": "Sample product description",
+      "price": 169.41,
+      "created_at": "2023-02-17T10:29:00.563108",
+      "updated_at": "2023-08-31T13:51:28.046382"
+    },
+    {
+      "product_id": 40,
+      "name": "Product 4",
+      "description": "Sample product description",
+      "price": 47.17,
+      "created_at": "2023-06-18T16:22:04.026439",
+      "updated_at": "2021-12-27T22:55:19.995178"
+    },
+    {
+      "product_id": 50,
+      "name": "Product 5",
+      "description": "Sample product description",
+      "price": 140.85,
+      "created_at": "2022-01-16T23:16:46.716882",
+      "updated_at": "2023-12-29T00:41:28.374756"
+    },
+    {
+      "product_id": 60,
+      "name": "Product 6",
+      "description": "Sample product description",
+      "price": 78.69,
+      "created_at": "2021-01-31T19:49:48.688494",
+      "updated_at": "2020-10-28T19:03:05.796526"
+    },
+    {
+      "product_id": 70,
+      "name": "Product 7",
+      "description": "Sample product description",
+      "price": 116.18,
+      "created_at": "2022-06-03T00:51:37.284462",
+      "updated_at": "2022-09-29T21:07:46.186143"
+    },
+    {
+      "product_id": 80,
+      "name": "Product 8",
+      "description": "Sample product description",
+      "price": 207.37,
+      "created_at": "2020-04-10T17:27:13.672081",
+      "updated_at": "2020-08-11T01:45:57.262996"
+    },
+    {
+      "product_id": 90,
+      "name": "Product 9",
+      "description": "Sample product description",
+      "price": 248.91,
+      "created_at": "2023-02-14T07:29:15.912984",
+      "updated_at": "2023-04-05T11:27:16.283648"
+    },
+    {
+      "product_id": 100,
+      "name": "Product 10",
+      "description": "Sample product description",
+      "price": 338.7,
+      "created_at": "2023-11-22T07:18:59.070238",
+      "updated_at": "2020-08-21T20:34:14.687903"
+    }
+  ],
+  "reports": [
+    {
+      "report_id": 1,
+      "report_name": "Report 1",
+      "report_data": "Sample report data for report 1",
+      "user_id": 5,
+      "created_at": "2023-02-14T00:08:58.829879",
+      "updated_at": "2022-10-11T00:31:16.397712"
+    },
+    {
+      "report_id": 2,
+      "report_name": "Report 2",
+      "report_data": "Sample report data for report 2",
+      "user_id": 5,
+      "created_at": "2023-03-16T04:55:06.566918",
+      "updated_at": "2022-05-27T21:11:00.378569"
+    },
+    {
+      "report_id": 3,
+      "report_name": "Report 3",
+      "report_data": "Sample report data for report 3",
+      "user_id": 3,
+      "created_at": "2023-08-27T07:02:28.914703",
+      "updated_at": "2022-05-23T01:28:16.364458"
+    },
+    {
+      "report_id": 4,
+      "report_name": "Report 4",
+      "report_data": "Sample report data for report 4",
+      "user_id": 1,
+      "created_at": "2021-08-19T18:57:19.665031",
+      "updated_at": "2023-10-30T01:24:14.123859"
+    },
+    {
+      "report_id": 5,
+      "report_name": "Report 5",
+      "report_data": "Sample report data for report 5",
+      "user_id": 1,
+      "created_at": "2023-05-20T16:26:21.893790",
+      "updated_at": "2022-07-25T19:59:43.549450"
+    }
+  ],
+  "users": [
+    {
+      "user_id": 1,
+      "username": "user1",
+      "email": "user1@example.com",
+      "phone_number": "123-456-7891",
+      "status": "suspended",
+      "last_login": "2022-04-12T04:25:56.255786",
+      "created_at": "2022-09-26T16:31:26.034907",
+      "updated_at": "2020-09-16T11:02:18.646027"
+    },
+    {
+      "user_id": 2,
+      "username": "user2",
+      "email": "user2@example.com",
+      "phone_number": "123-456-7892",
+      "status": "suspended",
+      "last_login": "2021-04-01T00:06:44.581692",
+      "created_at": "2020-07-25T08:18:14.290680",
+      "updated_at": "2023-01-18T05:11:41.147066"
+    },
+    {
+      "user_id": 3,
+      "username": "user3",
+      "email": "user3@example.com",
+      "phone_number": "123-456-7893",
+      "status": "active",
+      "last_login": "2023-12-02T03:06:50.179859",
+      "created_at": "2021-06-05T16:20:15.309966",
+      "updated_at": "2020-03-18T06:33:03.632406"
+    },
+    {
+      "user_id": 4,
+      "username": "user4",
+      "email": "user4@example.com",
+      "phone_number": "123-456-7894",
+      "status": "banned",
+      "last_login": "2020-03-14T19:31:35.657778",
+      "created_at": "2022-04-23T08:31:24.213916",
+      "updated_at": "2021-09-06T18:01:06.697726"
+    },
+    {
+      "user_id": 5,
+      "username": "user5",
+      "email": "user5@example.com",
+      "phone_number": "123-456-7895",
+      "status": "suspended",
+      "last_login": "2022-01-23T16:34:08.295389",
+      "created_at": "2020-11-24T08:51:31.372486",
+      "updated_at": "2021-02-17T15:04:23.783356"
+    }
+  ]
+}
