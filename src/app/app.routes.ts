@@ -14,24 +14,24 @@ import { ProductsComponent } from './components/products/products.component';
 import { ReportsComponent } from './components/reports/reports.component';
 
 export const routes: Routes = [
-    { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
 
-    { path: 'customers', component: CustomersComponent },
-    { path: 'customers/:id', component: CustomerDetailsComponent },
+  { path: 'customers', component: CustomersComponent },
+  { path: 'customers/:id', component: CustomerDetailsComponent },
 
-    { path: 'products', component: ProductsComponent },
-    { path: 'products/:id', component: ProductDetailsComponent },
+  { path: 'products', component: ProductsComponent },
+  { path: 'products/:id', component: ProductDetailsComponent },
 
-    { path: 'invoices', component: InvoicesComponent },
-    { path: 'invoices/:id', component: InvoiceDetailsComponent },
+  { path: 'invoices', component: InvoicesComponent },
+  { path: 'invoices/:id', component: InvoiceDetailsComponent },
 
-    { path: 'orders', component: OrdersComponent },
-    { path: 'orders/:id', component: OrderDetailsComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'orders/:id', component: OrderDetailsComponent },
 
-    { path: 'payments', component: PaymentsComponent },
-    { path: 'payments/:id', component: PaymentDetailsComponent },
-    
-    { path: 'reports', component: ReportsComponent },
-    
-    { path: 'dashboard', component: DashboardComponent },
+  { path: 'payments', component: PaymentsComponent },
+  { path: 'payments/:id', component: PaymentDetailsComponent },
+
+  { path: 'reports', component: ReportsComponent },
+
+  { path: 'dashboard', component: DashboardComponent },
 ];

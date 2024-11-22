@@ -32,12 +32,12 @@ import { RouterModule } from '@angular/router';
             <td>{{ invoice.invoice_id }}</td>
             <td>
               <a [routerLink]="['/customer-detail', invoice.customer_id]">
-                {{ invoice.customer_id }}
+                <button>{{ invoice.customer_id }}</button>
               </a>
             </td>
             <td>
               <a [routerLink]="['/order-detail', invoice.order_id]">
-                {{ invoice.order_id }}
+                <button>{{ invoice.order_id }}</button>
               </a>
             </td>
             <td>{{ invoice.total_amount }}</td>
@@ -48,7 +48,7 @@ import { RouterModule } from '@angular/router';
             <td>{{ invoice.discount }}</td>
             <td>{{ invoice.notes }}</td>
             <td>
-              <a [routerLink]="['/invoice-detail', invoice]">
+              <a [routerLink]="['/invoice-detail', invoice.invoice_id]">
                 <button>Edit</button>
               </a>
             </td>
@@ -89,5 +89,9 @@ export class InvoicesComponent {
     await this.invoiceService.deleteInvoice(invoice_id).then(() => {
       this.loadInvoices();
     });
+  }
+
+  navigateToInvoiceDetail(invoice_id: number) {
+
   }
 }
