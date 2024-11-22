@@ -531,7 +531,8 @@
       "status": "suspended",
       "last_login": "2022-04-12T04:25:56.255786",
       "created_at": "2022-09-26T16:31:26.034907",
-      "updated_at": "2020-09-16T11:02:18.646027"
+      "updated_at": "2020-09-16T11:02:18.646027",
+      "password": "$2a$10$K6K0dXJXq3fv7EK7e0Qrf.xVpZYBoHTzXaht2rGqVXwaV1.yYZmOS"
     },
     {
       "id": "2",
@@ -541,7 +542,8 @@
       "status": "suspended",
       "last_login": "2021-04-01T00:06:44.581692",
       "created_at": "2020-07-25T08:18:14.290680",
-      "updated_at": "2023-01-18T05:11:41.147066"
+      "updated_at": "2023-01-18T05:11:41.147066",
+      "password": "$2a$10$EzYb0Go0C9I.DsPFOhps9VwkjTgr.yGoGRvST0/xFISl5DeUwbqba"
     },
     {
       "id": "3",
@@ -551,7 +553,8 @@
       "status": "active",
       "last_login": "2023-12-02T03:06:50.179859",
       "created_at": "2021-06-05T16:20:15.309966",
-      "updated_at": "2020-03-18T06:33:03.632406"
+      "updated_at": "2020-03-18T06:33:03.632406",
+      "password": "$2a$10$uPz1s8/ZFhRjgy2r2TYzV.fpnR2Z0Jujbxy4yOkP3Swsrbw1tWwqK"
     },
     {
       "id": "4",
@@ -561,17 +564,19 @@
       "status": "banned",
       "last_login": "2020-03-14T19:31:35.657778",
       "created_at": "2022-04-23T08:31:24.213916",
-      "updated_at": "2021-09-06T18:01:06.697726"
+      "updated_at": "2021-09-06T18:01:06.697726",
+      "password": "$2a$10$6JhEInwDZZTH3/9SCMgjh.KlmTXiVxkmr7dmiuX7IdKP99UtY9.VK"
     },
     {
       "id": "5",
-      "username": "user5",
+      "username": "admin",
       "email": "user5@example.com",
       "phone_number": "123-456-7895",
       "status": "suspended",
       "last_login": "2022-01-23T16:34:08.295389",
       "created_at": "2020-11-24T08:51:31.372486",
-      "updated_at": "2021-02-17T15:04:23.783356"
+      "updated_at": "2021-02-17T15:04:23.783356",
+      "password": "$2b$12$emXz4t.i5Kwaomo5AUMXEesA3Ji25PfrjmNZHdacwCWsBQbt0k58S"
     }
   ]
 }

@@ -1,0 +1,81 @@
+/* Center the form on the page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9; /* Light gray background */
+    color: #333; /* Darker text color for readability */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Styling the form container */
+  .login-form {
+    background-color: #ffffff; /* White background for the form */
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    padding: 20px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Spacing and alignment for input groups */
+  .login-form div {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Styling the labels */
+  .login-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Styling the input fields */
+  .login-form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #fdfdfd; /* Slightly off-white input background */
+    transition: border-color 0.2s ease;
+  }
+  
+  .login-form input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+    background-color: #f9fcff; /* Very light blue background on focus */
+  }
+  
+  /* Styling the error messages */
+  .error {
+    color: #d9534f; /* Bootstrap's red danger color */
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  
+  /* Styling the submit button */
+  .login-form button {
+    padding: 10px;
+    background-color: #007bff; /* Primary blue button */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .login-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .login-form button:disabled {
+    background-color: #cccccc; /* Gray for disabled button */
+    cursor: not-allowed;
+  }
+  

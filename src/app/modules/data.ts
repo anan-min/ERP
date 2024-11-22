@@ -90,6 +90,7 @@ export interface Report {
 export interface User {
   user_id: number;
   username: string;
+  password: string;
   email: string;
   phone_number?: string;
   status: UserStatus;
