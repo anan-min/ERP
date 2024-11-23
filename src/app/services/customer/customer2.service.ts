@@ -14,6 +14,12 @@ export class Customer2Service {
     return data.map((customer: any) => this.parseCustomer(customer)) ?? [];
   }
 
+  async getCustomer(id: number): Promise<Customer> {
+    const response = await fetch(`${this.url}/${id}`);
+    const data = (await response.json()) ?? null;
+    return this.parseCustomer(data) ?? null;
+  }
+
   async updateCustomer(customer: Customer): Promise<Customer> {
     const response = await fetch(`${this.url}/${customer.customer_id}`, {
       method: 'PUT',
