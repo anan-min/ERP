@@ -26,8 +26,24 @@ export class Customer2Service {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(customer),
+      body: JSON.stringify({
+        name: customer.name,
+        email: customer.email,
+        phone_number: customer.phone_number,
+        address: customer.address,
+        created_at: customer.created_at,
+        updated_at: new Date().toISOString(), // Set `updated_at` to the current date-time
+      }),
     });
+
+    if (!response.ok) {
+      alert(
+        `Failed to update customer with ID ${customer.customer_id}: ${response.statusText}`
+      );
+    } else {
+      alert(`Customer with ID ${customer.customer_id} updated successfully!`);
+    }
+
     return (await response.json()) ?? null;
   }
 

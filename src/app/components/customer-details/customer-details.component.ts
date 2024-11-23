@@ -4,6 +4,7 @@ import { Customer } from '../../modules/data';
 import { Customer2Service } from '../../services/customer/customer2.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-details',
@@ -63,6 +64,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 export class CustomerDetailsComponent {
   customerService = inject(Customer2Service);
   route: ActivatedRoute = inject(ActivatedRoute);
+  private router: Router = inject(Router);
   customer: Customer | undefined;
 
   editForm = new FormGroup({
@@ -86,5 +88,23 @@ export class CustomerDetailsComponent {
     });
   }
 
-  onSubmit() {}
+  onSubmit() {
+    if (this.editForm.valid) {
+      this.customerService
+        .updateCustomer({
+          customer_id: this.customerID,
+          name: this.editForm.value.name ?? '',
+          email: this.editForm.value.email ?? '',
+          phone_number: this.editForm.value.phone_number ?? '',
+          address: this.editForm.value.address ?? '',
+          created_at: this.customer?.created_at ?? new Date(),
+          updated_at: new Date(),
+        })
+        .then((customer) => {
+          this.customer = customer;
+        });
+    }
+
+    this.router.navigate(['/customers']);
+  }
 }
