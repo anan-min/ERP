@@ -29,7 +29,7 @@ import { Order } from '../../modules/data';
           <tr *ngFor="let order of orders">
             <td>{{ order.order_id }}</td>
             <td>
-              <a [routerLink]="['/customer-detail', order.customer_id]">
+              <a [routerLink]="['/customers', order.customer_id]">
                 {{ order.customer_id }}
               </a>
             </td>
@@ -39,7 +39,7 @@ import { Order } from '../../modules/data';
             <td>{{ order.updated_at }}</td>
             <td>{{ order.status }}</td>
             <td>
-              <a [routerLink]="['/order-detail', order.order_id]">
+              <a [routerLink]="['/orders', order.order_id]">
                 <button>Edit</button>
               </a>
             </td>

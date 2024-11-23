@@ -1,0 +1,35 @@
+/* Navigation Bar Styles */
+.navbar {
+    background-color: #ffffff; /* White background */
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #e0e0e0; /* Light gray border for separation */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+  }
+  
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-link {
+    color: #333333; /* Dark gray text */
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .nav-link:hover {
+    color: #1976d2; /* Blue hover effect */
+    transform: scale(1.05);
+  }
+  
+  .nav-link:active {
+    color: #0d47a1; /* Darker blue for active links */
+  }
+  

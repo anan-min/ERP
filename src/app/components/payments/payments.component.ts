@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { Invoice, Payment, PaymentStatus } from '../../modules/data';
+import { Payment } from '../../modules/data';
 import { Payment2Service } from '../../services/payment/payment2.service';
 
 @Component({
@@ -30,7 +30,7 @@ import { Payment2Service } from '../../services/payment/payment2.service';
           <tr *ngFor="let payment of payments">
             <td>{{ payment.payment_id }}</td>
             <td>
-              <a [routerLink]="['/invoice-detail', payment.invoice_id]">
+              <a [routerLink]="['/invoices', payment.invoice_id]">
                 {{ payment.invoice_id }}
               </a>
             </td>
@@ -41,7 +41,7 @@ import { Payment2Service } from '../../services/payment/payment2.service';
             <td>{{ payment.created_at }}</td>
             <td>{{ payment.updated_at }}</td>
             <td>
-              <a [routerLink]="['/payment-detail', payment.payment_id]">
+              <a [routerLink]="['/payments', payment.payment_id]">
                 <button>Edit</button>
               </a>
             </td>

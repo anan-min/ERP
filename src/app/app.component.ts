@@ -7,14 +7,15 @@ import { AuthService } from './services/auth/auth.service';
   standalone: true,
   imports: [RouterModule],
   template: `
-    <a [routerLink]="['/orders']">orders </a>
-    <a [routerLink]="['/invoices']">invoices </a>
-    <a [routerLink]="['/customers']">customers </a>
-    <a [routerLink]="['/payments']">payments </a>
-    <a [routerLink]="['/orders']">orders </a>
-    <a [routerLink]="['/orders', 100]">
-      orders 100
-    </a>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a [routerLink]="['/orders']" class="nav-link">Orders</a></li>
+        <li><a [routerLink]="['/invoices']" class="nav-link">Invoices</a></li>
+        <li><a [routerLink]="['/customers']" class="nav-link">Customers</a></li>
+        <li><a [routerLink]="['/payments']" class="nav-link">Payments</a></li>
+        <li><a [routerLink]="['/products']" class="nav-link">Products</a></li>
+      </ul>
+    </nav>
     <router-outlet></router-outlet>
   `,
   styleUrl: './app.component.css',

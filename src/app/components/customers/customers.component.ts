@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
             <td>{{ customer.created_at }}</td>
             <td>{{ customer.updated_at }}</td>
             <td>
-              <a [routerLink]="['/customer-detail', customer.customer_id]">
+              <a [routerLink]="['/customers', customer.customer_id]">
                 <button>Edit</button>
               </a>
             </td>

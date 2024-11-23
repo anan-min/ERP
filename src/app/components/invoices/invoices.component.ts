@@ -31,13 +31,13 @@ import { RouterModule } from '@angular/router';
           <tr *ngFor="let invoice of invoices">
             <td>{{ invoice.invoice_id }}</td>
             <td>
-              <a [routerLink]="['/customer-detail', invoice.customer_id]">
-                <button>{{ invoice.customer_id }}</button>
+              <a [routerLink]="['/customers', invoice.customer_id]">
+                {{ invoice.customer_id }}
               </a>
             </td>
             <td>
-              <a [routerLink]="['/order-detail', invoice.order_id]">
-                <button>{{ invoice.order_id }}</button>
+              <a [routerLink]="['/orders', invoice.order_id]">
+                {{ invoice.order_id }}
               </a>
             </td>
             <td>{{ invoice.total_amount }}</td>
