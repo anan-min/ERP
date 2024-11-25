@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Order2Service } from '../../services/order/order2.service';
+import { OrderService } from '../../services/order/order.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Order } from '../../modules/data';
@@ -54,7 +54,7 @@ import { Order } from '../../modules/data';
   styleUrl: './orders.component.css',
 })
 export class OrdersComponent {
-  orderService = inject(Order2Service);
+  orderService = inject(OrderService);
   orders: Order[] = [];
 
   async ngOnInit() {

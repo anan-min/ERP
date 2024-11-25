@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Invoice } from '../../modules/data';
-import { Invoice2Service } from '../../services/invoice/invoice2.service';
+import { InvoiceService } from '../../services/invoice/invoice.service';
 import { RouterModule } from '@angular/router';
 @Component({
   selector: 'app-invoices',
@@ -65,7 +65,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './invoices.component.css',
 })
 export class InvoicesComponent {
-  invoiceService = inject(Invoice2Service);
+  invoiceService = inject(InvoiceService);
   invoices: Invoice[] = [];
 
   constructor() {
@@ -91,7 +91,5 @@ export class InvoicesComponent {
     });
   }
 
-  navigateToInvoiceDetail(invoice_id: number) {
-
-  }
+  navigateToInvoiceDetail(invoice_id: number) {}
 }

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Product } from '../../modules/data';
-import { Product2Service } from '../../services/product/product2.service';
+import { ProductService } from '../../services/product/product.service';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 @Component({
@@ -54,10 +54,11 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductsComponent {
   products: Product[] = [];
-  productService = inject(Product2Service);
+  productService = inject(ProductService);
 
   ngOnInit(): void {
     this.loadProducts();
+    this.productService.getProrductIds();
   }
 
   private loadProducts(): void {

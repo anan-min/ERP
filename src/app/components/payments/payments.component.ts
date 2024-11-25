@@ -2,7 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Payment } from '../../modules/data';
-import { Payment2Service } from '../../services/payment/payment2.service';
+import { PaymentService } from '../../services/payment/payment.service';
 
 @Component({
   selector: 'app-payments',
@@ -60,7 +60,7 @@ import { Payment2Service } from '../../services/payment/payment2.service';
 export class PaymentsComponent {
   url = 'http://localhost:3000/payments';
   payments: Payment[] = [];
-  paymentService = inject(Payment2Service);
+  paymentService = inject(PaymentService);
 
   constructor() {}
   ngOnInit(): void {

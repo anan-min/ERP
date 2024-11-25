@@ -63,7 +63,7 @@ export interface Payment {
   invoice_id: number;
   payment_date: Date;
   payment_amount: number;
-  payment_method: PaymentStatus;
+  payment_method: string;
   status: PaymentStatus;
   created_at: Date;
   updated_at: Date;

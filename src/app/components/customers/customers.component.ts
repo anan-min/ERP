@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Customer2Service } from '../../services/customer/customer2.service';
+import { CustomerService } from '../../services/customer/customer.service';
 import { Customer } from '../../modules/data';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -52,7 +52,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './customers.component.css',
 })
 export class CustomersComponent {
-  customerService = inject(Customer2Service);
+  customerService = inject(CustomerService);
   customers: Customer[] = [];
 
   constructor() {
