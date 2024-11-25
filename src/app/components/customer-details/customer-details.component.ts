@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Customer } from '../../modules/data';
-import { Customer2Service } from '../../services/customer/customer2.service';
+import { CustomerService } from '../../services/customer/customer.service';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -62,7 +62,7 @@ import { Router } from '@angular/router';
   styleUrl: './customer-details.component.css',
 })
 export class CustomerDetailsComponent {
-  customerService = inject(Customer2Service);
+  customerService = inject(CustomerService);
   route: ActivatedRoute = inject(ActivatedRoute);
   private router: Router = inject(Router);
   customer: Customer | undefined;

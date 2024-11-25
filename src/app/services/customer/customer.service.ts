@@ -20,13 +20,24 @@ export class CustomerService {
     return data.map((customer: any) => customer.id) ?? [];
   }
 
+  async getCustomer(id: number): Promise<Customer> {
+    const response = await fetch(`${this.url}/${id}`);
+    const data = (await response.json()) ?? null;
+    return this.parseCustomer(data) ?? null;
+  }
+
   async updateCustomer(customer: Customer): Promise<Customer> {
     const response = await fetch(`${this.url}/${customer.customer_id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(customer),
+      body: JSON.stringify({
+        name: customer.name,
+        email: customer.email,
+        phone_number: customer.phone_number,
+        address: customer.address,
+      }),
     });
     return (await response.json()) ?? null;
   }
