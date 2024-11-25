@@ -209,6 +209,45 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
+app.put("/products/:id", async (req, res) => {
+  try {
+    const { name, description, price } = req.body;
+    const id = req.params.id;
+    await database.updateProductById(id, {
+      name,
+      description,
+      price,
+    });
+
+    res.json({ message: "Product updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.delete("/products/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await database.deleteProductById(id);
+    res.json({ message: "Product deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.delete("/customers/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await database.deleteCustomerById(id);
+    res.json({ message: "Customer deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 5000");
 });

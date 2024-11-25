@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
       <h1>Edit Customer [{{ customer?.customer_id }}] Details</h1>
       <div class="form-group">
-        <label for="name">Name:</label>
+        <label for="name">Na me:</label>
         <input
           id="name"
           type="text"
@@ -54,6 +54,16 @@ import { Router } from '@angular/router';
           formControlName="address"
           placeholder="Enter customer's address"
         ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="updated_at">Updated At:</label>
+        <div>{{ customer?.updated_at }}</div>
+      </div>
+
+      <div class="form-group">
+        <label for="created_at">Updated At:</label>
+        <div>{{ customer?.created_at }}</div>
       </div>
 
       <button type="submit" class="btn btn-primary">Save Changes</button>

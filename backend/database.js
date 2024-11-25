@@ -4,10 +4,10 @@ const { queries } = require("./queries");
 
 class Database {
   pool = new Pool({
-    user: "postgres",
+    user: "anan",
     password: "nut12bodin",
     port: 5432,
-    database: "erp", // Connect to the 'erp' database
+    database: "erp",
   });
 
   constructor() {
@@ -284,6 +284,25 @@ class Database {
       data.address,
       id,
     ]);
+  }
+
+  async updateProductById(id, data) {
+    const response = await this.pool.query(queries.update.product, [
+      data.name,
+      data.description,
+      data.price,
+      id,
+    ]);
+  }
+
+  async deleteProductById(id) {
+    const response = await this.pool.query(queries.delete.product, [id]);
+    return response.rows;
+  }
+
+  async deleteCustomerById(id) {
+    const response = await this.pool.query(queries.delete.customer, [id]);
+    return response.rows;
   }
 
   async close() {

@@ -26,6 +26,22 @@ export class ProductService {
     return this.parseProduct(data) ?? null;
   }
 
+  async updateProduct(product: Product): Promise<Product> {
+    console.log(product);
+    const response = await fetch(`${this.url}/${product.product_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: product.name,
+        description: product.description,
+        price: product.price,
+      }),
+    });
+    return (await response.json()) ?? null;
+  }
+
   private parseProduct(product: any): Product {
     return {
       product_id: product.product_id ?? 0,
