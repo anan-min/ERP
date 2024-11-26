@@ -63,6 +63,7 @@ export class OrdersComponent {
 
   async loadOrders() {
     this.orders = await this.orderService.getAllOrders();
+    this.orders.sort((a, b) => a.order_id - b.order_id);
   }
 
   async deleteOrder(id: number) {

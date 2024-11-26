@@ -71,12 +71,12 @@ import { Order, OrderStatus } from '../../modules/data';
 
       <div class="form-group">
         <label for="updated_at">Updated At:</label>
-        <div>{{ this.DateFormatter(order?.updated_at) }}</div>
+        <div>{{ this.formatDate(order?.updated_at) }}</div>
       </div>
 
       <div class="form-group">
         <label for="created_at">Created At:</label>
-        <div>{{ this.DateFormatter(order?.created_at) }}</div>
+        <div>{{ this.formatDate(order?.created_at) }}</div>
       </div>
 
       <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -97,9 +97,9 @@ export class OrderDetailsComponent {
 
   editForm = new FormGroup({
     customer_id: new FormControl(0),
-    order_date: new FormControl(new Date()),
+    order_date: new FormControl(''),
     total_amount: new FormControl(0),
-    status: new FormControl(OrderStatus.COMPLETED),
+    status: new FormControl(OrderStatus.PENDING),
   });
 
   orderStatuses = [
@@ -115,9 +115,9 @@ export class OrderDetailsComponent {
 
   async ngOnInit() {
     this.order = await this.orderServices.getOrder(this.orderID);
-    this.validCustomersIDs = await this.customerServices.getCustomerIds();
+    this.validCustomersIDs = await this.customerServices.getAllCustomerIds();
     this.editForm.patchValue({
-      order_date: this.order?.order_date ?? new Date(),
+      order_date: this.formatDate(this.order?.order_date),
       customer_id: this.order?.customer_id ?? 0,
       total_amount: this.order?.total_amount ?? 0,
       status: this.order?.status ?? OrderStatus.COMPLETED,
@@ -129,7 +129,7 @@ export class OrderDetailsComponent {
       await this.orderServices.updateOrder({
         order_id: this.orderID,
         customer_id: this.editForm.value.customer_id ?? 0,
-        order_date: this.editForm.value.order_date ?? new Date(),
+        order_date: new Date(this.editForm.value.order_date ?? ''),
         total_amount: this.editForm.value.total_amount ?? 0,
         status: this.editForm.value.status ?? OrderStatus.COMPLETED,
         created_at: this.order?.created_at ?? new Date(),
@@ -139,13 +139,11 @@ export class OrderDetailsComponent {
     this.router.navigate(['/orders']);
   }
 
-  public DateFormatter(date: Date | undefined): string {
+  formatDate(date: Date | undefined): string {
     if (!date) return '';
-    const day = date.getDate().toString().padStart(2, '0');
+    const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear().toString();
-    const hours = date.getHours().toString().padStart(2, '0');
-    const minutes = date.getMinutes().toString().padStart(2, '0');
-    return `${day}/${month}/${year} ${hours}:${minutes}`;
+    const day = date.getDate().toString().padStart(2, '0');
+    return `${year}-${month}-${day}`; // Return date in yyyy-mm-dd format
   }
 }

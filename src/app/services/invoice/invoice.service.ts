@@ -27,7 +27,15 @@ export class InvoiceService {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(invoice),
+      body: JSON.stringify({
+        customer_id: invoice.customer_id,
+        order_id: invoice.order_id,
+        total_amount: invoice.total_amount,
+        status: invoice.status,
+        due_date: invoice.due_date,
+        discount: invoice.discount,
+        notes: invoice.notes,
+      }),
     });
     return (await response.json()) ?? null;
   }

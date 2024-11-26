@@ -14,7 +14,7 @@ export class CustomerService {
     return data.map((customer: any) => this.parseCustomer(customer)) ?? [];
   }
 
-  async getCustomerIds(): Promise<number[]> {
+  async getAllCustomerIds(): Promise<number[]> {
     const response = await fetch(this.url);
     const data = (await response.json()) ?? [];
     return data.map((customer: any) => customer.customer_id) ?? [];

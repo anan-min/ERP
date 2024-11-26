@@ -40,12 +40,12 @@ export interface Invoice {
   customer_id: number;
   order_id: number;
   total_amount: number;
-  created_at: Date;
-  updated_at: Date;
   status: InvoiceStatus;
-  due_date: Date;
   discount?: number;
   notes?: string;
+  due_date: Date;
+  updated_at: Date;
+  created_at: Date;
 }
 
 export interface Order {

@@ -48,7 +48,7 @@ import { RouterModule } from '@angular/router';
             <td>{{ invoice.created_at }}</td>
             <td>{{ invoice.updated_at }}</td>
             <td>
-              <a [routerLink]="['/invoice-detail', invoice.invoice_id]">
+              <a [routerLink]="['/invoices', invoice.invoice_id]">
                 <button>Edit</button>
               </a>
             </td>

@@ -175,7 +175,6 @@ class Database {
 
   async getCustomers() {
     const response = await this.pool.query(queries.getAll.customers);
-    console.log(response.rows);
     return response.rows;
   }
 
@@ -299,7 +298,7 @@ class Database {
   }
 
   async updateInvoiceById(id, data) {
-    const response = await this.pool.query(queries.update.product, [
+    const response = await this.pool.query(queries.update.invoice, [
       data.customer_id,
       data.order_id,
       data.total_amount,
@@ -312,7 +311,6 @@ class Database {
   }
 
   async updateOrderById(id, data) {
-    console.log("data: ", data);
     const response = await this.pool.query(queries.update.order, [
       data.customer_id,
       data.order_date,

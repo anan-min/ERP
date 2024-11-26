@@ -228,18 +228,30 @@ app.put("/products/:id", async (req, res) => {
 
 app.put("/invoices/:id", async (req, res) => {
   try {
-    const { name, description, price } = req.body;
+    const {
+      customer_id,
+      order_id,
+      total_amount,
+      status,
+      dues_date,
+      discount,
+      notes,
+    } = req.body;
     const id = req.params.id;
     await database.updateInvoiceById(id, {
-      name,
-      description,
-      price,
+      customer_id,
+      order_id,
+      total_amount,
+      status,
+      dues_date,
+      discount,
+      notes,
     });
 
-    res.json({ message: "Product updated successfully" });
+    res.json({ message: "Invoices updated successfully" });
   } catch (err) {
     console.error(err);
-    res.status(500).send("Internal Server Error");
+    res.status(500).send("Invoice Update Failed");
   }
 });
 

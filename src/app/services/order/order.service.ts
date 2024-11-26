@@ -14,6 +14,12 @@ export class OrderService {
     return data.map((order: any) => this.parseOrder(order)) ?? [];
   }
 
+  async getAllOrderIds(): Promise<number[]> {
+    const response = await fetch(this.url);
+    const data = (await response.json()) ?? [];
+    return data.map((order: any) => order.order_id) ?? [];
+  }
+
   async getOrder(id: number): Promise<Order> {
     const response = await fetch(`${this.url}/${id}`);
     const data = (await response.json()) ?? null;
