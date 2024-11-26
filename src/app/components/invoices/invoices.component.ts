@@ -17,12 +17,12 @@ import { RouterModule } from '@angular/router';
             <th>customer id</th>
             <th>order id</th>
             <th>total amount</th>
-            <th>created at</th>
-            <th>updated at</th>
             <th>status</th>
-            <th>due date</th>
             <th>discount</th>
             <th>notes</th>
+            <th>due date</th>
+            <th>created at</th>
+            <th>updated at</th>
             <th>edit</th>
             <th>delete</th>
           </tr>
@@ -41,12 +41,12 @@ import { RouterModule } from '@angular/router';
               </a>
             </td>
             <td>{{ invoice.total_amount }}</td>
+            <td>{{ invoice.status }}</td>
+            <td>{{ invoice.discount }}</td>
+            <td>{{ invoice.notes ?? 'no notes' }}</td>
+            <td>{{ invoice.due_date }}</td>
             <td>{{ invoice.created_at }}</td>
             <td>{{ invoice.updated_at }}</td>
-            <td>{{ invoice.status }}</td>
-            <td>{{ invoice.due_date }}</td>
-            <td>{{ invoice.discount }}</td>
-            <td>{{ invoice.notes }}</td>
             <td>
               <a [routerLink]="['/invoice-detail', invoice.invoice_id]">
                 <button>Edit</button>
@@ -74,9 +74,6 @@ export class InvoicesComponent {
 
   async ngOnInit() {
     this.loadInvoices();
-    this.invoices.map((invoice) => {
-      console.log(invoice);
-    });
   }
 
   async loadInvoices() {

@@ -12,7 +12,13 @@ import { Router } from '@angular/router';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <h1>Edit Customer [{{ customer?.customer_id }}] Details</h1>
+      <h1>Edit Customer Details</h1>
+
+      <div class="form-group">
+        <label for="customer_id">Customer ID:</label>
+        <div>{{ customer?.customer_id }}</div>
+      </div>
+
       <div class="form-group">
         <label for="name">Na me:</label>
         <input
@@ -62,7 +68,7 @@ import { Router } from '@angular/router';
       </div>
 
       <div class="form-group">
-        <label for="created_at">Updated At:</label>
+        <label for="created_at">Created At:</label>
         <div>{{ customer?.created_at }}</div>
       </div>
 
@@ -98,9 +104,9 @@ export class CustomerDetailsComponent {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.editForm.valid) {
-      this.customerService
+      await this.customerService
         .updateCustomer({
           customer_id: this.customerID,
           name: this.editForm.value.name ?? '',

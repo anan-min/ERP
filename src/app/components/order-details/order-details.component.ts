@@ -14,7 +14,7 @@ import { Order, OrderStatus } from '../../modules/data';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <h1>Edit Customer [{{ order?.order_id }}] Details</h1>
+      <h1>Edit Order Details</h1>
       <div class="form-group">
         <label for="order_id">Order ID:</label>
         <div>{{ order?.order_id }}</div>
@@ -59,13 +59,24 @@ import { Order, OrderStatus } from '../../modules/data';
       </div>
 
       <div class="form-group">
-        <label for="updated_at">Updated At:</label>
-        <div>{{ order?.updated_at }}</div>
+        <label for="order_date">Order Date:</label>
+        <input
+          id="order_date"
+          type="date"
+          class="form-control"
+          formControlName="order_date"
+          placeholder="{order?.order_date}"
+        />
       </div>
 
       <div class="form-group">
-        <label for="created_at">Updated At:</label>
-        <div>{{ order?.created_at }}</div>
+        <label for="updated_at">Updated At:</label>
+        <div>{{ this.DateFormatter(order?.updated_at) }}</div>
+      </div>
+
+      <div class="form-group">
+        <label for="created_at">Created At:</label>
+        <div>{{ this.DateFormatter(order?.created_at) }}</div>
       </div>
 
       <button type="submit" class="btn btn-primary">Save Changes</button>
@@ -98,9 +109,13 @@ export class OrderDetailsComponent {
     OrderStatus.CANCELLED,
   ];
 
-  async ngOnInit() {
-    this.validCustomersIDs = await this.customerServices.getCustomerIds();
+  constructor() {
+    this.orderID = Number(this.route.snapshot.paramMap.get('id'));
+  }
 
+  async ngOnInit() {
+    this.order = await this.orderServices.getOrder(this.orderID);
+    this.validCustomersIDs = await this.customerServices.getCustomerIds();
     this.editForm.patchValue({
       order_date: this.order?.order_date ?? new Date(),
       customer_id: this.order?.customer_id ?? 0,
@@ -109,12 +124,28 @@ export class OrderDetailsComponent {
     });
   }
 
-  constructor() {
-    this.orderID = Number(this.route.snapshot.paramMap.get('id'));
-    this.orderServices.getOrder(this.orderID).then((order) => {
-      this.order = order;
-    });
+  async onSubmit() {
+    if (this.editForm.valid) {
+      await this.orderServices.updateOrder({
+        order_id: this.orderID,
+        customer_id: this.editForm.value.customer_id ?? 0,
+        order_date: this.editForm.value.order_date ?? new Date(),
+        total_amount: this.editForm.value.total_amount ?? 0,
+        status: this.editForm.value.status ?? OrderStatus.COMPLETED,
+        created_at: this.order?.created_at ?? new Date(),
+        updated_at: new Date(),
+      });
+    }
+    this.router.navigate(['/orders']);
   }
 
-  onSubmit() {}
+  public DateFormatter(date: Date | undefined): string {
+    if (!date) return '';
+    const day = date.getDate().toString().padStart(2, '0');
+    const month = (date.getMonth() + 1).toString().padStart(2, '0');
+    const year = date.getFullYear().toString();
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    return `${day}/${month}/${year} ${hours}:${minutes}`;
+  }
 }

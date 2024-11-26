@@ -12,7 +12,13 @@ import { ProductService } from '../../services/product/product.service';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-      <h1>Edit Customer [{{ product?.product_id }}] Details</h1>
+      <h1>Edit Product Details</h1>
+
+      <div class="form-group">
+        <label for="product_id">Product ID:</label>
+        <div>{{ product?.product_id }}</div>
+      </div>
+
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -85,9 +91,9 @@ export class ProductDetailsComponent {
     });
   }
 
-  onSubmit() {
+  async onSubmit() {
     if (this.editForm.valid) {
-      this.productService.updateProduct({
+      await this.productService.updateProduct({
         product_id: this.productID,
         name: this.editForm.value.name ?? '',
         description: this.editForm.value.description ?? '',

@@ -226,6 +226,41 @@ app.put("/products/:id", async (req, res) => {
   }
 });
 
+app.put("/invoices/:id", async (req, res) => {
+  try {
+    const { name, description, price } = req.body;
+    const id = req.params.id;
+    await database.updateInvoiceById(id, {
+      name,
+      description,
+      price,
+    });
+
+    res.json({ message: "Product updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.put("/orders/:id", async (req, res) => {
+  try {
+    const { customer_id, order_date, total_amount, status } = req.body;
+    const id = req.params.id;
+    await database.updateOrderById(id, {
+      customer_id,
+      order_date,
+      total_amount,
+      status,
+    });
+
+    res.json({ message: "Orders updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
 app.delete("/products/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -242,6 +277,17 @@ app.delete("/customers/:id", async (req, res) => {
     const id = req.params.id;
     await database.deleteCustomerById(id);
     res.json({ message: "Customer deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.delete("/invoices/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await database.deleteInvoiceById(id);
+    res.json({ message: "Invoices deleted successfully" });
   } catch (err) {
     console.error(err);
     res.status(500).send("Internal Server Error");

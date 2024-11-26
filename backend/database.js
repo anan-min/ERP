@@ -4,7 +4,7 @@ const { queries } = require("./queries");
 
 class Database {
   pool = new Pool({
-    user: "anan",
+    user: "postgres",
     password: "nut12bodin",
     port: 5432,
     database: "erp",
@@ -81,6 +81,7 @@ class Database {
         customer.email,
         customer.phone_number,
         customer.address,
+        customer.created_at,
       ]);
     }
   }
@@ -94,6 +95,7 @@ class Database {
         invoice.customer_id,
         invoice.order_id,
         invoice.total_amount,
+        invoice.created_at,
         invoice.status,
         invoice.due_date,
         invoice.discount,
@@ -110,6 +112,7 @@ class Database {
         order.customer_id,
         order.total_amount,
         order.status,
+        order.created_at,
       ]);
     }
     const response = await this.pool.query("select * from orders");
@@ -295,6 +298,30 @@ class Database {
     ]);
   }
 
+  async updateInvoiceById(id, data) {
+    const response = await this.pool.query(queries.update.product, [
+      data.customer_id,
+      data.order_id,
+      data.total_amount,
+      data.status,
+      data.due_date,
+      data.discount,
+      data.notes,
+      id,
+    ]);
+  }
+
+  async updateOrderById(id, data) {
+    console.log("data: ", data);
+    const response = await this.pool.query(queries.update.order, [
+      data.customer_id,
+      data.order_date,
+      data.total_amount,
+      data.status,
+      id,
+    ]);
+  }
+
   async deleteProductById(id) {
     const response = await this.pool.query(queries.delete.product, [id]);
     return response.rows;
@@ -302,6 +329,11 @@ class Database {
 
   async deleteCustomerById(id) {
     const response = await this.pool.query(queries.delete.customer, [id]);
+    return response.rows;
+  }
+
+  async deleteInvoiceById(id) {
+    const response = await this.pool.query(queries.delete.invoice, [id]);
     return response.rows;
   }
 

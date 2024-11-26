@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, RouterModule],
   template: `
     <div class="container">
-      <h2>Orders List</h2>
+      <h2>Products List</h2>
       <table>
         <thead>
           <tr>

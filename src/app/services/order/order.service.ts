@@ -20,6 +20,23 @@ export class OrderService {
     return this.parseOrder(data) ?? null;
   }
 
+  async updateOrder(order: Order): Promise<Order> {
+    console.log('update order sent');
+    const response = await fetch(`${this.url}/${order.order_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        customer_id: order.customer_id,
+        order_date: order.order_date,
+        total_amount: order.total_amount,
+        status: order.status,
+      }),
+    });
+    console.log(response.json);
+    return (await response.json()) ?? null;
+  }
   private parseOrder(order: any): Order {
     return {
       order_id: order.order_id ?? 0,

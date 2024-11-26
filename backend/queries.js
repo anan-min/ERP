@@ -88,15 +88,15 @@ const queries = {
   insert: {
     customer: `
         INSERT INTO customers (name, email, phone_number, address, created_at, updated_at)
-        VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+        VALUES ($1, $2, $3, $4, $5, CURRENT_TIMESTAMP);
       `,
     invoice: `
         INSERT INTO invoices (customer_id, order_id, total_amount, created_at, updated_at, status, due_date, discount, notes)
-        VALUES ($1, $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP, $4, $5, $6, $7);
+        VALUES ($1, $2, $3, $4, CURRENT_TIMESTAMP, $5, $6, $7, $8);
       `,
     order: `
         INSERT INTO orders (customer_id, order_date, total_amount, status, created_at, updated_at)
-        VALUES ($1, CURRENT_TIMESTAMP, $2, $3, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+        VALUES ($1, CURRENT_TIMESTAMP, $2, $3, $4, CURRENT_TIMESTAMP);
       `,
     payment: `
         INSERT INTO payments (invoice_id, payment_date, payment_amount, payment_method, status, created_at, updated_at)
@@ -129,8 +129,8 @@ const queries = {
       `,
     order: `
         UPDATE orders
-        SET customer_id = $1, order_date = CURRENT_TIMESTAMP, total_amount = $2, status = $3, updated_at = CURRENT_TIMESTAMP
-        WHERE order_id = $4;
+        SET customer_id = $1, order_date = $2, total_amount = $3, status = $4, updated_at = CURRENT_TIMESTAMP
+        WHERE order_id = $5;
       `,
     payment: `
         UPDATE payments
