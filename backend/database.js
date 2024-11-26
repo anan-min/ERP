@@ -335,6 +335,11 @@ class Database {
     return response.rows;
   }
 
+  async deleteOrderById(id) {
+    const response = await this.pool.query(queries.delete.order, [id]);
+    return response.rows;
+  }
+
   async close() {
     await this.pool.end();
   }

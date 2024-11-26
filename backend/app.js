@@ -306,6 +306,17 @@ app.delete("/invoices/:id", async (req, res) => {
   }
 });
 
+app.delete("/orders/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await database.deleteOrderById(id);
+    res.json({ message: "Order deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Order Delete Failed");
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 5000");
 });
