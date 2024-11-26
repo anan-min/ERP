@@ -8,12 +8,14 @@ import { AuthService } from './services/auth/auth.service';
   imports: [RouterModule],
   template: `
     <nav class="navbar">
+      <a [routerLink]="['/']" class="home-button">Home</a>
       <ul class="nav-list">
         <li><a [routerLink]="['/orders']" class="nav-link">Orders</a></li>
         <li><a [routerLink]="['/invoices']" class="nav-link">Invoices</a></li>
         <li><a [routerLink]="['/customers']" class="nav-link">Customers</a></li>
         <li><a [routerLink]="['/payments']" class="nav-link">Payments</a></li>
         <li><a [routerLink]="['/products']" class="nav-link">Products</a></li>
+        <li><a [routerLink]="['/reports']" class="nav-link">Reports</a></li>
       </ul>
     </nav>
     <router-outlet></router-outlet>

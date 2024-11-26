@@ -61,10 +61,10 @@ export interface Order {
 export interface Payment {
   payment_id: number;
   invoice_id: number;
-  payment_date: Date;
   payment_amount: number;
   payment_method: string;
   status: PaymentStatus;
+  payment_date: Date;
   created_at: Date;
   updated_at: Date;
 }

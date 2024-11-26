@@ -134,8 +134,8 @@ const queries = {
       `,
     payment: `
         UPDATE payments
-        SET invoice_id = $1, payment_date = CURRENT_TIMESTAMP, payment_amount = $2, payment_method = $3, status = $4, updated_at = CURRENT_TIMESTAMP
-        WHERE payment_id = $5;
+        SET invoice_id = $1, payment_date = $2, payment_amount = $3, payment_method = $4, status = $5, updated_at = CURRENT_TIMESTAMP
+        WHERE payment_id = $6;
       `,
     product: `
         UPDATE products

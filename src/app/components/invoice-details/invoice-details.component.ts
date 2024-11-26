@@ -55,7 +55,7 @@ import { formatDate } from '../../utils/date_utils';
       <div class="form-group">
         <label for="status">Invoice Status:</label>
         <select id="status" class="form-control" formControlName="status">
-          <option value="" disabled>Select Category</option>
+          <option value="" disabled>Select Invoice Status</option>
           <option *ngFor="let status of invoiceStatues" [value]="status">
             {{ status }}
           </option>

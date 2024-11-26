@@ -15,6 +15,12 @@ export class InvoiceService {
     return data.map((invoice: any) => this.parseInvoice(invoice)) ?? [];
   }
 
+  async getAllInvoiceIds(): Promise<number[]> {
+    const response = await fetch(this.url);
+    const data = (await response.json()) ?? [];
+    return data.map((invoice: any) => invoice.invoice_id) ?? [];
+  }
+
   async getInvoice(id: number): Promise<Invoice> {
     const response = await fetch(`${this.url}/${id}`);
     const data = (await response.json()) ?? null;

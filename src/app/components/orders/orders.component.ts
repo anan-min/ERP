@@ -59,6 +59,7 @@ export class OrdersComponent {
 
   async ngOnInit() {
     this.loadOrders();
+    this.orders.sort((a, b) => a.order_id - b.order_id);
   }
 
   async loadOrders() {

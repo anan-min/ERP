@@ -1,4 +1,4 @@
- {
+{
   "customers": [
     {
       "id": "1",
@@ -290,7 +290,7 @@
       "invoice_id": 8,
       "payment_date": "2021-05-01T17:47:38.081424",
       "payment_amount": 337.74,
-      "payment_method": "Credit Card",
+      "payment_method": "Prompt Pay",
       "status": "fail",
       "created_at": "2020-10-21T02:52:01.087990",
       "updated_at": "2021-10-19T00:12:14.662671"
@@ -320,7 +320,7 @@
       "invoice_id": 4,
       "payment_date": "2021-11-11T20:26:09.866598",
       "payment_amount": 322.63,
-      "payment_method": "Credit Card",
+      "payment_method": "Cash",
       "status": "pending",
       "created_at": "2022-06-13T19:09:17.270207",
       "updated_at": "2020-10-04T02:56:44.804168"
@@ -330,7 +330,7 @@
       "invoice_id": 7,
       "payment_date": "2021-06-20T02:50:44.446482",
       "payment_amount": 550.92,
-      "payment_method": "Credit Card",
+      "payment_method": "Prompt Pay",
       "status": "pending",
       "created_at": "2022-01-03T18:56:54.753127",
       "updated_at": "2021-04-21T17:52:14.089895"
@@ -360,7 +360,7 @@
       "invoice_id": 3,
       "payment_date": "2020-11-15T19:14:39.211288",
       "payment_amount": 424.94,
-      "payment_method": "Credit Card",
+      "payment_method": "True Money",
       "status": "pending",
       "created_at": "2020-03-01T21:13:20.656050",
       "updated_at": "2022-07-01T13:40:41.556824"
@@ -468,11 +468,12 @@
       "updated_at": "2020-08-21T20:34:14.687903"
     }
   ],
+
   "reports": [
     {
       "id": "1",
       "report_name": "Report 1",
-      "report_data": "Sample report data for report 1",
+      "report_data": "Sample report data for report 1. This report contains detailed analysis on the performance metrics of various departments, with comparisons across multiple time periods. It includes key performance indicators (KPIs), visualizations such as graphs and tables, and a summary of recommendations for improving operational efficiency. In addition, the report covers financial forecasting and resource allocation for upcoming projects.",
       "user_id": 5,
       "created_at": "2023-02-14T00:08:58.829879",
       "updated_at": "2022-10-11T00:31:16.397712"
@@ -480,7 +481,7 @@
     {
       "id": "2",
       "report_name": "Report 2",
-      "report_data": "Sample report data for report 2",
+      "report_data": "Sample report data for report 2. This document examines the current state of the marketing strategy and customer engagement efforts. It evaluates various advertising campaigns, their return on investment (ROI), and the effectiveness of different communication channels. It also includes customer feedback surveys and analysis of social media metrics, offering insights into areas of improvement and strategies for increasing brand awareness.",
       "user_id": 5,
       "created_at": "2023-03-16T04:55:06.566918",
       "updated_at": "2022-05-27T21:11:00.378569"
@@ -488,7 +489,7 @@
     {
       "id": "3",
       "report_name": "Report 3",
-      "report_data": "Sample report data for report 3",
+      "report_data": "Sample report data for report 3. This report provides a comprehensive overview of the company's research and development activities over the last quarter. It outlines key innovations, product developments, and ongoing projects. The report also includes details of partnerships with external research organizations, funding acquisitions, and a roadmap for future product launches. A section of the report is dedicated to market trends and customer needs assessment, which guide the next phase of development.",
       "user_id": 3,
       "created_at": "2023-08-27T07:02:28.914703",
       "updated_at": "2022-05-23T01:28:16.364458"
@@ -496,7 +497,7 @@
     {
       "id": "4",
       "report_name": "Report 4",
-      "report_data": "Sample report data for report 4",
+      "report_data": "Sample report data for report 4. This document outlines the security audit results for the latest system update. It highlights potential vulnerabilities, unauthorized access attempts, and compliance with industry regulations such as GDPR and CCPA. It also offers recommendations for strengthening cybersecurity measures, implementing multi-factor authentication, and improving data encryption protocols to ensure better protection against future threats.",
       "user_id": 1,
       "created_at": "2021-08-19T18:57:19.665031",
       "updated_at": "2023-10-30T01:24:14.123859"
@@ -504,12 +505,13 @@
     {
       "id": "5",
       "report_name": "Report 5",
-      "report_data": "Sample report data for report 5",
+      "report_data": "Sample report data for report 5. This report analyzes the performance of the company's supply chain logistics over the past year. It evaluates transportation costs, warehouse efficiency, and supplier reliability. The document also explores the impact of external factors such as global shipping delays and material shortages. Recommendations for optimizing inventory management and diversifying suppliers to mitigate future disruptions are included in the conclusion.",
       "user_id": 1,
       "created_at": "2023-05-20T16:26:21.893790",
       "updated_at": "2022-07-25T19:59:43.549450"
     }
   ],
+
   "users": [
     {
       "id": "1",

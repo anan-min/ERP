@@ -320,6 +320,25 @@ class Database {
     ]);
   }
 
+  async updatePaymentById(id, data) {
+    const response = await this.pool.query(queries.update.payment, [
+      data.invoice_id,
+      data.payment_date,
+      data.payment_amount,
+      data.payment_method,
+      data.status,
+      id,
+    ]);
+  }
+
+  async updateReportById(id, data) {
+    const response = await this.pool.query(queries.update.report, [
+      data.report_name,
+      data.report_data,
+      id,
+    ]);
+  }
+
   async deleteProductById(id) {
     const response = await this.pool.query(queries.delete.product, [id]);
     return response.rows;
@@ -337,6 +356,11 @@ class Database {
 
   async deleteOrderById(id) {
     const response = await this.pool.query(queries.delete.order, [id]);
+    return response.rows;
+  }
+
+  async deletePaymentById(id) {
+    const response = await this.pool.query(queries.delete.payment, [id]);
     return response.rows;
   }
 

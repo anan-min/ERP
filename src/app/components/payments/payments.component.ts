@@ -58,13 +58,13 @@ import { PaymentService } from '../../services/payment/payment.service';
   styleUrl: './payments.component.css',
 })
 export class PaymentsComponent {
-  url = 'http://localhost:3000/payments';
   payments: Payment[] = [];
   paymentService = inject(PaymentService);
 
   constructor() {}
   ngOnInit(): void {
     this.loadPayments();
+    this.payments.sort((a, b) => a.payment_id - b.payment_id);
   }
 
   private loadPayments(): void {

@@ -273,6 +273,25 @@ app.put("/orders/:id", async (req, res) => {
   }
 });
 
+app.put("/payments/:id", async (req, res) => {
+  try {
+    const { invoice_id, payment_date, payment_amount, payment_method, status } =
+      req.body;
+    const id = req.params.id;
+    await database.updatePaymentById(id, {
+      invoice_id,
+      payment_date,
+      payment_amount,
+      payment_method,
+      status,
+    });
+    res.json({ message: "Payment updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Payment update failed");
+  }
+});
+
 app.delete("/products/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -314,6 +333,17 @@ app.delete("/orders/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Order Delete Failed");
+  }
+});
+
+app.delete("/payments/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    await database.deletePaymentById(id);
+    res.json({ message: "Payment deleted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Payment Delete Failed");
   }
 });
 

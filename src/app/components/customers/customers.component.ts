@@ -57,6 +57,7 @@ export class CustomersComponent {
 
   constructor() {
     this.loadCustomers();
+    this.customers.sort((a, b) => a.customer_id - b.customer_id);
   }
 
   ngOnInit(): void {

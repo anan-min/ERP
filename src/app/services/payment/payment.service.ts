@@ -15,6 +15,22 @@ export class PaymentService {
     return data.map((payment: any) => this.parsePayment(payment));
   }
 
+  async updatePayment(payment: Payment): Promise<void> {
+    const data = await fetch(`${this.url}/${payment.payment_id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        invoice_id: payment.invoice_id,
+        payment_date: payment.payment_date,
+        payment_amount: payment.payment_amount,
+        payment_method: payment.payment_method,
+        status: payment.status,
+      }),
+    });
+  }
+
   async getPayment(id: number): Promise<Payment> {
     const response = await fetch(`${this.url}/${id}`);
     const data = (await response.json()) ?? null;

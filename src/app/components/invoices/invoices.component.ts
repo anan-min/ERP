@@ -74,6 +74,7 @@ export class InvoicesComponent {
 
   async ngOnInit() {
     this.loadInvoices();
+    this.invoices.sort((a, b) => a.invoice_id - b.invoice_id);
   }
 
   async loadInvoices() {
