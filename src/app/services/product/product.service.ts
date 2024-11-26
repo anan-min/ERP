@@ -14,10 +14,10 @@ export class ProductService {
     return data.map((product: any) => this.parseProduct(product)) ?? [];
   }
 
-  async getProrductIds(): Promise<number[]> {
+  async getProductIds(): Promise<number[]> {
     const response = await fetch(this.url);
     const data = (await response.json()) ?? [];
-    return data.map((product: any) => product.id) ?? [];
+    return data.map((product: any) => product.product_id) ?? [];
   }
 
   async getProduct(id: number): Promise<Product> {
@@ -27,7 +27,6 @@ export class ProductService {
   }
 
   async updateProduct(product: Product): Promise<Product> {
-    console.log(product);
     const response = await fetch(`${this.url}/${product.product_id}`, {
       method: 'PUT',
       headers: {

@@ -12,7 +12,6 @@ export class InvoiceService {
   async getAllInvoices(): Promise<Invoice[]> {
     const response = await fetch(this.url);
     const data = (await response.json()) ?? [];
-    console.log(data);
     return data.map((invoice: any) => this.parseInvoice(invoice)) ?? [];
   }
 
@@ -61,7 +60,6 @@ export class InvoiceService {
   }
 
   private parseInvoice(invoice: any): Invoice {
-    console.log(invoice.invoice_id);
     return {
       invoice_id: invoice.invoice_id ?? 0,
       customer_id: invoice.customer_id,

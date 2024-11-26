@@ -55,10 +55,10 @@ import { CommonModule } from '@angular/common';
 export class ProductsComponent {
   products: Product[] = [];
   productService = inject(ProductService);
+  productIDs: Number[] = [];
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.loadProducts();
-    this.productService.getProrductIds();
   }
 
   private loadProducts(): void {
