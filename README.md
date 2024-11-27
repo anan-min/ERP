@@ -24,7 +24,7 @@ Anan Mingmitpattanakul 1660706688 - frontend / backend
    - Run the following SQL command to create the ERP database:
 
    ```sql
-   CREATE DATABASE erp_db;
+   CREATE DATABASE erp;
    ```
 
    - Replace `erp` with your desired database name.
