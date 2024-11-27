@@ -2,6 +2,11 @@
 
 This ERP system project consists of a frontend built with Angular and a backend powered by Express.js and PostgreSQL. Below are the steps to get both parts of the system up and running.
 
+
+
+## Project Members
+Anan Mingmitpattanakul 1660706688 - frontend / backend
+
 ## Prerequisites
 
 - **Node.js** and **npm** installed (for both frontend and backend)
