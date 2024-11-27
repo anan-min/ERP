@@ -27,7 +27,7 @@ Anan Mingmitpattanakul 1660706688 - frontend / backend
    CREATE DATABASE erp_db;
    ```
 
-   - Replace `erp_db` with your desired database name.
+   - Replace `erp` with your desired database name.
 
 3. **Configure the Database Connection**:
    - Ensure that your PostgreSQL server is running.
