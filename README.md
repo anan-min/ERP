@@ -1,27 +1,97 @@
-# ERP
+# ERP System Setup and Run Instructions
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+This ERP system project consists of a frontend built with Angular and a backend powered by Express.js and PostgreSQL. Below are the steps to get both parts of the system up and running.
 
-## Development server
+## Prerequisites
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **Node.js** and **npm** installed (for both frontend and backend)
+- **PostgreSQL** installed
+- **Angular CLI** installed (`npm install -g @angular/cli`)
 
-## Code scaffolding
+## 1. Setup PostgreSQL
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+1. **Install PostgreSQL**: Make sure PostgreSQL is installed. You can download it from [here](https://www.postgresql.org/download/).
+   
+2. **Create the ERP Database**:
+   Since PostgreSQL does not support `CREATE IF NOT EXISTS` for databases, the ERP database must be created manually.
+   
+   - Open PostgreSQL terminal or your preferred PostgreSQL client (e.g., pgAdmin).
+   - Run the following SQL command to create the ERP database:
 
-## Build
+   ```sql
+   CREATE DATABASE erp_db;
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+   - Replace `erp_db` with your desired database name.
 
-## Running unit tests
+3. **Configure the Database Connection**:
+   - Ensure that your PostgreSQL server is running.
+   - Update your backend configuration (typically in `config` or `app.js`) with the correct database credentials: host, user, password, and database name.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 2. Running the Frontend (Angular)
 
-## Running end-to-end tests
+1. **Go to the root directory of your project** (where both frontend and backend folders are located):
+   
+   ```bash
+   cd your_project_directory
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+2. Install the required dependencies for the frontend:
 
-## Further help
+   ```bash
+   npm install
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+3. Start the Angular development server:
+
+   ```bash
+   ng serve
+   ```
+
+   - The frontend will be available at `http://localhost:4200` by default.
+
+## 3. Running the Backend (Express.js)
+
+1. **Navigate to the backend folder** (located in the root of your project):
+
+   ```bash
+   cd backend
+   ```
+
+2. Install the required dependencies for the backend:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the backend server:
+
+   ```bash
+   node app.js
+   ```
+
+   - The backend will run on `http://localhost:3000` (or whichever port is configured in `app.js`).
+
+## 4. Accessing the ERP System
+
+- Once both the frontend and backend are running, you can access the ERP system by opening the frontend in your browser:
+
+  ```
+  http://localhost:4200
+  ```
+
+- The frontend will interact with the backend at:
+
+  ```
+  http://localhost:3000
+  ```
+
+---
+
+### Notes:
+
+- **PostgreSQL Database Creation**: The ERP database needs to be created manually since PostgreSQL doesn't support `CREATE IF NOT EXISTS` for databases.
+- **Backend Configuration**: Ensure the database credentials are correctly set in the backend configuration (e.g., `app.js`).
+- **Dependencies**: Make sure both frontend and backend have their respective `node_modules` installed. If you encounter any issues, run `npm install` again in both directories.
+
+---
