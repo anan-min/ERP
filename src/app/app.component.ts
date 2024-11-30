@@ -2,10 +2,12 @@ import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
 
+import { InsertComponent } from './components/insert/insert.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule],
+  imports: [RouterModule, InsertComponent],
   template: `
     <nav class="navbar">
       <a [routerLink]="['/']" class="home-button">Home</a>
@@ -18,7 +20,8 @@ import { AuthService } from './services/auth/auth.service';
         <li><a [routerLink]="['/reports']" class="nav-link">Reports</a></li>
       </ul>
     </nav>
-    <router-outlet></router-outlet>
+    <app-insert></app-insert>
+    <!-- <router-outlet></router-outlet> -->
   `,
   styleUrl: './app.component.css',
 })
