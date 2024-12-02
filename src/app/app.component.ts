@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
         <li><a [routerLink]="['/payments']" class="nav-link">Payments</a></li>
         <li><a [routerLink]="['/products']" class="nav-link">Products</a></li>
         <li><a [routerLink]="['/reports']" class="nav-link">Reports</a></li>
-        <li *ngIf="isLoggedIn">
+        <li *ngIf="isLoggedIn$ | async">
           <button (click)="logout()">Logout</button>
         </li>
       </ul>
@@ -31,11 +31,9 @@ export class AppComponent {
   title = 'ERP';
   authService = inject(AuthService);
   router = inject(Router);
-  isLoggedIn = this.authService.isAuthenticated();
+  isLoggedIn$ = this.authService.isLoggedIn$;
 
-  ngOnInit(): void {
-    this.isLoggedIn = this.authService.isAuthenticated();
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.authService.logout();
