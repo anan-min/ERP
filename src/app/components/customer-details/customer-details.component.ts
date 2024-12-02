@@ -20,7 +20,7 @@ import { Router } from '@angular/router';
       </div>
 
       <div class="form-group">
-        <label for="name">Na me:</label>
+        <label for="name">Name:</label>
         <input
           id="name"
           type="text"
