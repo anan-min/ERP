@@ -1,11 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
-import {
-  FormControl,
-  FormGroup,
-  Validators,
-  ReactiveFormsModule,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -16,7 +11,8 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   template: `
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
-      <div>
+      <h2>Login</h2>
+      <div class="form-group">
         <label for="username">Username:</label>
         <input
           id="username"
@@ -35,7 +31,7 @@ import { CommonModule } from '@angular/common';
         </div>
       </div>
 
-      <div>
+      <div class="form-group">
         <label for="password">Password:</label>
         <input
           id="password"
@@ -63,16 +59,23 @@ export class LoginComponent {
   constructor() {
     this.loginForm.enable();
   }
+
+  ngOnInit(): void {
+    if (this.authService.isAuthenticated()) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
+
   private router: Router = inject(Router);
   authService = inject(AuthService);
   n_attempt = 0;
 
   loginForm = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
+    username: new FormControl(''),
+    password: new FormControl(''),
   });
 
-  onSubmit() {
+  async onSubmit() {
     if (this.n_attempt > 3) {
       alert('You have exceeded the maximum number of login attempts.');
       this.loginForm.disable();
@@ -87,7 +90,8 @@ export class LoginComponent {
 
     const username = this.loginForm.value.username as string;
     const password = this.loginForm.value.password as string;
-    if (this.authService.login(username, password)) {
+    console.log(username, password);
+    if (await this.authService.login(username, password)) {
       alert('Login successful!');
       this.n_attempt = 0;
       this.loginForm.reset();

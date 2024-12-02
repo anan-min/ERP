@@ -4,7 +4,7 @@ const { queries } = require("./queries");
 
 class Database {
   pool = new Pool({
-    user: "postgres",
+    user: "anan",
     password: "nut12bodin",
     port: 5432,
     database: "erp",
@@ -362,6 +362,22 @@ class Database {
   async deletePaymentById(id) {
     const response = await this.pool.query(queries.delete.payment, [id]);
     return response.rows;
+  }
+
+  async login(username, password) {
+    const response2 = await this.pool.query(queries.getAll.users);
+    console.log(response2.rows);
+
+    
+    console.log(username, password);
+    const response = await this.pool.query(queries.login, [username, password]);
+    console.log(response.rows);
+
+    if (response.rows.length === 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   async close() {

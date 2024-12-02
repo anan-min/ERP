@@ -184,31 +184,6 @@ app.get("/reports/:id", async (req, res) => {
   }
 });
 
-app.get("/users", async (req, res) => {
-  try {
-    const result = await database.getReports();
-    res.json(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
-app.get("/users/:id", async (req, res) => {
-  try {
-    const result = await database.getUserById(req.params.id);
-
-    if (!result) {
-      return res.status(404).json({ error: "User not found" });
-    }
-
-    res.json(result);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Internal Server Error");
-  }
-});
-
 app.put("/products/:id", async (req, res) => {
   try {
     const { name, description, price } = req.body;
@@ -344,6 +319,38 @@ app.delete("/payments/:id", async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send("Payment Delete Failed");
+  }
+});
+
+app.post("/login", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+
+    console.log("username/ password", username, password);
+    // Call the database method to validate credentials
+    const isAuthenticated = await database.login(username, password);
+
+    console.log("isAuthenticated", isAuthenticated);
+    if (isAuthenticated) {
+      // Respond with success message if login is successful
+      res.status(200).json({
+        success: true,
+        message: "Login successful",
+      });
+    } else {
+      // Respond with error message if login fails
+      res.status(401).json({
+        success: false,
+        message: "Invalid username or password",
+      });
+    }
+  } catch (err) {
+    console.error(err);
+    // Handle unexpected errors
+    res.status(500).json({
+      success: false,
+      message: "An error occurred during login",
+    });
   }
 });
 

@@ -1,81 +1,89 @@
-/* Center the form on the page */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9; /* Light gray background */
-    color: #333; /* Darker text color for readability */
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+/* Light Theme Form Styling */
+form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+form .form-group {
+  margin-bottom: 15px;
+}
+
+form .form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 5px;
+}
+
+form .form-group input,
+form .form-group textarea,
+form .form-group div {
+  width: 100%;
+  padding: 10px 12px; /* Add padding to the right */
+  font-size: 14px;
+  border: 1px solid #d0d0d0;
+  border-radius: 4px;
+  background-color: #fafafa;
+  color: #333333;
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+form .form-group input:focus,
+form .form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #ffffff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Additional Styling for Textarea */
+form .form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
   }
-  
-  /* Styling the form container */
-  .login-form {
-    background-color: #ffffff; /* White background for the form */
-    border: 1px solid #ddd; /* Light border for separation */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    padding: 20px;
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Spacing and alignment for input groups */
-  .login-form div {
-    margin-bottom: 15px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Styling the labels */
-  .login-form label {
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  /* Styling the input fields */
-  .login-form input {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+
+  form button {
     font-size: 14px;
-    background-color: #fdfdfd; /* Slightly off-white input background */
-    transition: border-color 0.2s ease;
   }
-  
-  .login-form input:focus {
-    border-color: #007bff; /* Blue border on focus */
-    outline: none;
-    background-color: #f9fcff; /* Very light blue background on focus */
-  }
-  
-  /* Styling the error messages */
-  .error {
-    color: #d9534f; /* Bootstrap's red danger color */
-    font-size: 12px;
-    margin-top: 5px;
-  }
-  
-  /* Styling the submit button */
-  .login-form button {
-    padding: 10px;
-    background-color: #007bff; /* Primary blue button */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .login-form button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-  }
-  
-  .login-form button:disabled {
-    background-color: #cccccc; /* Gray for disabled button */
-    cursor: not-allowed;
-  }
-  
+}
+
+
+h2 {
+  text-align: center;
+}

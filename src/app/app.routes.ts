@@ -12,26 +12,75 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ReportsComponent } from './components/reports/reports.component';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 
 export const routes: Routes = [
-  { path: '', component: DashboardComponent },
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'customers',
+    component: LoginComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'customers/:id',
+    component: CustomerDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'customers', component: CustomersComponent },
-  { path: 'customers/:id', component: CustomerDetailsComponent },
+  {
+    path: 'products',
+    component: ProductsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'products/:id',
+    component: ProductDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'products', component: ProductsComponent },
-  { path: 'products/:id', component: ProductDetailsComponent },
+  {
+    path: 'invoices',
+    component: InvoicesComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'invoices/:id',
+    component: InvoiceDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'invoices', component: InvoicesComponent },
-  { path: 'invoices/:id', component: InvoiceDetailsComponent },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'orders/:id',
+    component: OrderDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'orders', component: OrdersComponent },
-  { path: 'orders/:id', component: OrderDetailsComponent },
+  {
+    path: 'payments',
+    component: PaymentsComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'payments/:id',
+    component: PaymentDetailsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'payments', component: PaymentsComponent },
-  { path: 'payments/:id', component: PaymentDetailsComponent },
+  {
+    path: 'reports',
+    component: ReportsComponent,
+    canActivate: [AuthGuardService],
+  },
 
-  { path: 'reports', component: ReportsComponent },
-
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuardService],
+  },
 ];

@@ -1,13 +1,13 @@
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './services/auth/auth.service';
-
-import { InsertComponent } from './components/insert/insert.component';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, InsertComponent],
+  imports: [RouterModule, CommonModule],
   template: `
     <nav class="navbar">
       <a [routerLink]="['/']" class="home-button">Home</a>
@@ -18,21 +18,27 @@ import { InsertComponent } from './components/insert/insert.component';
         <li><a [routerLink]="['/payments']" class="nav-link">Payments</a></li>
         <li><a [routerLink]="['/products']" class="nav-link">Products</a></li>
         <li><a [routerLink]="['/reports']" class="nav-link">Reports</a></li>
+        <li *ngIf="isLoggedIn">
+          <button (click)="logout()">Logout</button>
+        </li>
       </ul>
     </nav>
-    <app-insert></app-insert>
-    <!-- <router-outlet></router-outlet> -->
+    <router-outlet></router-outlet>
   `,
   styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'ERP';
-  isLoggedIn: boolean = false;
   authService = inject(AuthService);
+  router = inject(Router);
+  isLoggedIn = this.authService.isAuthenticated();
 
   ngOnInit(): void {
-    this.authService.loggedIn$.subscribe((status) => {
-      this.isLoggedIn = status;
-    });
+    this.isLoggedIn = this.authService.isAuthenticated();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

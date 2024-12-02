@@ -566,7 +566,7 @@
       "last_login": "2022-01-23T16:34:08.295389",
       "created_at": "2020-11-24T08:51:31.372486",
       "updated_at": "2021-02-17T15:04:23.783356",
-      "password": "$2b$12$emXz4t.i5Kwaomo5AUMXEesA3Ji25PfrjmNZHdacwCWsBQbt0k58S"
+      "password": "admin"
     }
   ]
 }
