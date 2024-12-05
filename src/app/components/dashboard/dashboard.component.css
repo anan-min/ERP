@@ -1,0 +1,47 @@
+/* Ensure the select element aligns properly with the container */
+select {
+  width: 100%; /* Make the select take the full width of its container */
+  max-width: 300px; /* Optional: Limit the maximum width of the select */
+  padding: 12px 15px;
+  margin: 20px 0; /* Give it spacing from the surrounding content */
+  border-radius: 5px;
+  border: 1px solid #007bff;
+  font-size: 16px;
+  background-color: #f0f8ff; /* Light blue background */
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block; /* Make it a block-level element to stack properly */
+}
+
+/* Container for the dashboard to match the layout of other components */
+.container {
+  width: 100%;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Add space between the select and the component below */
+.container select {
+  margin-bottom: 20px; /* Add bottom margin to the select element */
+}
+
+/* Align the component properly below the select */
+.container > div {
+  margin-top: 20px;
+}
+
+/* Make sure the table and other components have consistent padding and spacing */
+h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Align the rest of the components to match the invoices component style */
+.container .component {
+  padding: 20px;
+  margin-top: 20px;
+}

@@ -12,12 +12,10 @@ import { CommonModule } from '@angular/common';
     <nav class="navbar">
       <a [routerLink]="['/']" class="home-button">Home</a>
       <ul class="nav-list">
-        <li><a [routerLink]="['/orders']" class="nav-link">Orders</a></li>
-        <li><a [routerLink]="['/invoices']" class="nav-link">Invoices</a></li>
-        <li><a [routerLink]="['/customers']" class="nav-link">Customers</a></li>
-        <li><a [routerLink]="['/payments']" class="nav-link">Payments</a></li>
-        <li><a [routerLink]="['/products']" class="nav-link">Products</a></li>
-        <li><a [routerLink]="['/reports']" class="nav-link">Reports</a></li>
+        <li><a [routerLink]="['/dashboard']" class="nav-link">View</a></li>
+        <li>
+          <a [routerLink]="['/dashboard/insert']" class="nav-link">Insert</a>
+        </li>
         <li *ngIf="isLoggedIn$ | async">
           <button (click)="logout()">Logout</button>
         </li>

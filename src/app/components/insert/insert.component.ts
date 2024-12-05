@@ -21,14 +21,16 @@ import { ReportInsertComponent } from './report-insert/report-insert.component';
     CommonModule,
   ],
   template: `
-    <select (change)="onSelectComponent($event)">
-      <option value="customer">Customer</option>
-      <option value="invoice">Invoice</option>
-      <option value="order">Order</option>
-      <option value="payment">Payment</option>
-      <option value="product">Product</option>
-      <option value="report">Report</option>
-    </select>
+    <div class="container">
+      <select (change)="onSelectComponent($event)">
+        <option value="customer">Customer</option>
+        <option value="invoice">Invoice</option>
+        <option value="order">Order</option>
+        <option value="payment">Payment</option>
+        <option value="product">Product</option>
+        <option value="report">Report</option>
+      </select>
+    </div>
 
     <div *ngIf="selectedComponent === 'customer'">
       <app-customer-insert></app-customer-insert>

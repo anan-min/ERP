@@ -19,7 +19,7 @@
 .home-button {
   text-decoration: none;
   color: #007bff; /* Blue color for links */
-  font-size: 18px;
+  font-size: 30px;
   font-weight: bold;
 }
 
@@ -38,7 +38,7 @@
   color: #007bff; /* Blue color for links and buttons */
   background-color: transparent;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
   padding: 8px 15px; /* Consistent padding for links and button */
   border-radius: 4px;
   cursor: pointer;

@@ -13,6 +13,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductsComponent } from './components/products/products.component';
 import { ReportsComponent } from './components/reports/reports.component';
 import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+import { InsertComponent } from './components/insert/insert.component';
 
 export const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -81,6 +82,12 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuardService],
+  },
+
+  {
+    path: 'dashboard/insert',
+    component: InsertComponent,
     canActivate: [AuthGuardService],
   },
 ];

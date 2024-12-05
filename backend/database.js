@@ -4,7 +4,7 @@ const { queries } = require("./queries");
 
 class Database {
   pool = new Pool({
-    user: "anan",
+    user: "postgres",
     password: "nut12bodin",
     port: 5432,
     database: "erp",
