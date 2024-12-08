@@ -42,6 +42,16 @@ import { formatDate } from '../../utils/date_utils';
       </div>
 
       <div class="form-group">
+        <label for="order_id">Order ID:</label>
+        <select id="order_id" class="form-control" formControlName="order_id">
+          <option value="" disabled>Select Order ID</option>
+          <option *ngFor="let orderId of validOrdersIDs" [value]="orderId">
+            {{ orderId }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
         <label for="total_amount">Total Amount:</label>
         <input
           id="total_amount"
@@ -147,6 +157,8 @@ export class InvoiceDetailsComponent {
     this.invoice = await this.invoiceService.getInvoice(this.invoiceID);
     this.validCustomersIDs = await this.customerService.getAllCustomerIds();
     this.validOrdersIDs = await this.orderService.getAllOrderIds();
+
+    console.log(this.validOrdersIDs);
 
     this.editForm.patchValue({
       customer_id: this.invoice?.customer_id ?? 0,

@@ -208,7 +208,7 @@ app.put("/invoices/:id", async (req, res) => {
       order_id,
       total_amount,
       status,
-      dues_date,
+      due_date,
       discount,
       notes,
     } = req.body;
@@ -218,7 +218,7 @@ app.put("/invoices/:id", async (req, res) => {
       order_id,
       total_amount,
       status,
-      dues_date,
+      due_date,
       discount,
       notes,
     });
@@ -351,6 +351,53 @@ app.post("/login", async (req, res) => {
       success: false,
       message: "An error occurred during login",
     });
+  }
+});
+
+app.post("/customers", async (req, res) => {
+  try {
+    const { name, email, phone, address } = req.body;
+
+    console.log(req.body);
+    await database.insertCustomer({
+      name,
+      email,
+      phone,
+      address,
+    });
+
+    res.json({ message: "Customer created successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+app.post("/invoices", async (req, res) => {
+  try {
+    const {
+      customer_id,
+      order_id,
+      total_amount,
+      status,
+      due_date,
+      discount,
+      notes,
+    } = req.body;
+    await database.insertInvoice({
+      customer_id,
+      order_id,
+      total_amount,
+      status,
+      due_date,
+      discount,
+      notes,
+    });
+
+    res.json({ message: "invoices updated successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("invoice Update Failed");
   }
 });
 

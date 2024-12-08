@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { CustomerService } from '../../../services/customer/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-insert',
@@ -8,7 +10,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   imports: [CommonModule, ReactiveFormsModule],
   template: `
     <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <h1>Enter New Customer Details</h1>
+      <h1>Enter New Customer Details</h1>
       <div class="form-group">
         <label for="name">Name:</label>
         <input
@@ -32,12 +34,12 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
       </div>
 
       <div class="form-group">
-        <label for="name">Phone Number:</label>
+        <label for="phone_number">Phone Number:</label>
         <input
           id="phone_number"
           type="text"
           class="form-control"
-          formControlName="name"
+          formControlName="phone_number"
           placeholder="Enter customer's phone number"
         />
       </div>
@@ -57,14 +59,16 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
         <div>{{ current_date }}</div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Save Changes</button>
+      <button type="submit" class="btn btn-primary">Create new Customer</button>
     </form>
   `,
   styleUrl: './customer-insert.component.css',
 })
 export class CustomerInsertComponent {
   // name email phone_number address create_at updated_at
+  customerService = inject(CustomerService);
   current_date = new Date();
+  private router: Router = inject(Router);
 
   editForm = new FormGroup({
     name: new FormControl(''),
@@ -73,5 +77,20 @@ export class CustomerInsertComponent {
     address: new FormControl(''),
   });
 
-  async onSubmit() {}
+  async onSubmit() {
+    if (this.editForm.valid) {
+      console.log('create new customer clicked');
+      console.log("ediform value", this.editForm.value);
+      await this.customerService.insertCustomer({
+        customer_id: 0,
+        name: this.editForm.value.name ?? '',
+        email: this.editForm.value.email ?? '',
+        phone_number: this.editForm.value.phone_number ?? '',
+        address: this.editForm.value.address ?? '',
+        created_at: new Date(),
+        updated_at: new Date(),
+      });
+    }
+    this.router.navigate(['/customers']);
+  }
 }

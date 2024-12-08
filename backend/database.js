@@ -364,11 +364,39 @@ class Database {
     return response.rows;
   }
 
+  async insertCustomer(data) {
+    const response = await this.pool.query(queries.insert.customer, [
+      data.name,
+      data.email,
+      data.phone_number,
+      data.address,
+      data.created_at,
+    ]);
+    console.log("Customer inserted successfully.");
+    console.log("respose: ", response.rows);
+    return response.rows;
+  }
+
+  async insertInvoice(data) {
+    const response = await this.pool.query(queries.insert.invoice, [
+      data.customer_id,
+      data.order_id,
+      data.total_amount,
+      data.created_at,
+      data.status,
+      data.due_date,
+      data.discount,
+      data.notes,
+    ]);
+    console.log("Invoice inserted successfully.");
+    console.log("respose: ", response.rows);
+    return response.rows;
+  }
+
   async login(username, password) {
     const response2 = await this.pool.query(queries.getAll.users);
     console.log(response2.rows);
 
-    
     console.log(username, password);
     const response = await this.pool.query(queries.login, [username, password]);
     console.log(response.rows);

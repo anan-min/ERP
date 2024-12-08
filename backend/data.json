@@ -86,7 +86,7 @@
     {
       "id": "2",
       "customer_id": 8,
-      "order_id": 200,
+      "order_id": 2,
       "total_amount": 230.51,
       "created_at": "2023-06-09T19:13:11.408892",
       "updated_at": "2020-12-02T23:03:16.773057",
@@ -98,7 +98,7 @@
     {
       "id": "3",
       "customer_id": 9,
-      "order_id": 300,
+      "order_id": 3,
       "total_amount": 159.64,
       "created_at": "2022-04-07T20:09:46.794840",
       "updated_at": "2022-02-22T04:19:18.902001",
@@ -110,7 +110,7 @@
     {
       "id": "4",
       "customer_id": 7,
-      "order_id": 400,
+      "order_id": 4,
       "total_amount": 124.66,
       "created_at": "2020-03-20T02:55:23.398382",
       "updated_at": "2020-11-29T09:03:12.109093",
@@ -122,7 +122,7 @@
     {
       "id": "5",
       "customer_id": 8,
-      "order_id": 500,
+      "order_id": 5,
       "total_amount": 483.58,
       "created_at": "2023-05-24T17:39:10.809639",
       "updated_at": "2022-05-05T02:14:18.188338",
@@ -134,7 +134,7 @@
     {
       "id": "6",
       "customer_id": 2,
-      "order_id": 600,
+      "order_id": 6,
       "total_amount": 538.2,
       "created_at": "2020-07-31T02:02:23.186969",
       "updated_at": "2021-10-15T23:44:02.782563",
@@ -146,7 +146,7 @@
     {
       "id": "7",
       "customer_id": 5,
-      "order_id": 700,
+      "order_id": 7,
       "total_amount": 698.89,
       "created_at": "2020-01-10T07:24:22.130863",
       "updated_at": "2021-07-07T22:46:54.503344",
@@ -158,7 +158,7 @@
     {
       "id": "8",
       "customer_id": 7,
-      "order_id": 800,
+      "order_id": 8,
       "total_amount": 925.05,
       "created_at": "2023-02-23T18:09:24.216943",
       "updated_at": "2022-01-10T07:00:14.934266",
@@ -170,7 +170,7 @@
     {
       "id": "9",
       "customer_id": 4,
-      "order_id": 900,
+      "order_id": 9,
       "total_amount": 434.77,
       "created_at": "2022-05-09T19:24:20.614195",
       "updated_at": "2023-07-24T06:03:47.435536",
@@ -182,7 +182,7 @@
     {
       "id": "10",
       "customer_id": 9,
-      "order_id": 1000,
+      "order_id": 1,
       "total_amount": 991.6,
       "created_at": "2021-03-20T23:01:59.131762",
       "updated_at": "2020-04-11T21:20:04.761327",

@@ -42,6 +42,23 @@ export class CustomerService {
     return (await response.json()) ?? null;
   }
 
+  async insertCustomer(customer: Customer): Promise<Customer> {
+    console.log('create new customer clicked');
+    const response = await fetch(`${this.url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: customer.name,
+        email: customer.email,
+        phone_number: customer.phone_number,
+        address: customer.address,
+      }),
+    });
+    return (await response.json()) ?? null;
+  }
+
   async deleteCustomer(id: number): Promise<void> {
     const response = await fetch(`${this.url}/${id}`, {
       method: 'DELETE',

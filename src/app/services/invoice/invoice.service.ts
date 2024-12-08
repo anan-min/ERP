@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Invoice, InvoiceStatus } from '../../modules/data';
+import { create } from 'domain';
 
 @Injectable({
   providedIn: 'root',
@@ -36,6 +37,27 @@ export class InvoiceService {
       body: JSON.stringify({
         customer_id: invoice.customer_id,
         order_id: invoice.order_id,
+        total_amount: invoice.total_amount,
+        status: invoice.status,
+        due_date: invoice.due_date,
+        discount: invoice.discount,
+        notes: invoice.notes,
+      }),
+    });
+    return (await response.json()) ?? null;
+  }
+
+  async insertInvoice(invoice: Invoice): Promise<Invoice> {
+    console.log(invoice);
+    const response = await fetch(`${this.url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        customer_id: invoice.customer_id,
+        order_id: invoice.order_id,
+        create_at: invoice.created_at,
         total_amount: invoice.total_amount,
         status: invoice.status,
         due_date: invoice.due_date,
