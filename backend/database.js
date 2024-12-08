@@ -393,6 +393,20 @@ class Database {
     return response.rows;
   }
 
+  async insertOrder(data) {
+    // (customer_id, CURRENT_TIMESTAMP, total_amount, status, created_at, CURRENT_TIMESTAMP)
+    console.log("insert order recieved ");
+    const response = await this.pool.query(queries.insert.order, [
+      data.customer_id,
+      data.total_amount,
+      data.status,
+      data.created_at,
+    ]);
+    console.log("Invoice inserted successfully.");
+    console.log("respose: ", response.rows);
+    return response.rows;
+  }
+
   async login(username, password) {
     const response2 = await this.pool.query(queries.getAll.users);
     console.log(response2.rows);

@@ -401,6 +401,23 @@ app.post("/invoices", async (req, res) => {
   }
 });
 
+app.post("/orders", async (req, res) => {
+  try {
+    const { customer_id, total_amount, status, created_at } = req.body;
+    await database.insertOrder({
+      customer_id,
+      total_amount,
+      status,
+      created_at,
+    });
+
+    res.json({ message: "order inserted successfully" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("order inserted Failed");
+  }
+});
+
 app.listen(3000, () => {
   console.log("Server is running on port 5000");
 });
